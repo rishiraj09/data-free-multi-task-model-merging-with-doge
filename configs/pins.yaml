@@ -1,0 +1,14 @@
+# Exact checkpoint and dataset versions verified in the submitted inventory
+# (results/manifests/inventory__20261018T213330Z.json). Every run loads the model revisions
+# below and refuses to run if a test set's size or fingerprint differs.
+models:
+  openai/clip-vit-base-patch32: 3d74acf9a28c67741b2f4f2ea7635f0aaf6f0268
+  tanganke/clip-vit-base-patch32_mnist: 28dca299b68f294bb368533172496dbde3901f3e
+  tanganke/clip-vit-base-patch32_svhn: 7da249d42c97bb5117832d37d6e54acc50dec7e0
+  tanganke/clip-vit-base-patch32_gtsrb: 7b11ced426cc9cd0430650be19d75748f3bd64d0
+  tanganke/clip-vit-base-patch32_eurosat: 7c114f53697b7acca1147a0d1e8b7c769979b57b
+datasets:  # loaded through the official FusionBench config, split test
+  mnist: {hub_id: ylecun/mnist, revision: 77f3279092a1c1579b2250db8eafed0ad422088c, num_examples: 10000, fingerprint: '0dfd083cb9267799'}
+  svhn: {hub_id: ufldl-stanford/svhn, revision: f9e1717d73324ebbc1ece84267ccd80d0aca0690, num_examples: 26032, fingerprint: 'a207c6c13f80bf60'}
+  gtsrb: {hub_id: tanganke/gtsrb, revision: ea889fff70dda7b09e94a4b207dded438deca549, num_examples: 12630, fingerprint: 'ff45d06818947202'}
+  eurosat: {hub_id: tanganke/eurosat, revision: 43750fc422c7fbd4289e2df3f7473617a5937acc, num_examples: 2700, fingerprint: '905a7e438df2eaa3'}

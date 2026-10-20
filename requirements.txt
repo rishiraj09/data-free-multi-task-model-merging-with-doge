@@ -1,0 +1,26 @@
+# Top-level pins for the DOGE exam project (Python 3.10).
+# The official DOGE repo (FusionBench 0.2.11 fork, commit ca0a0a1, May 2025) ships
+# unpinned dependencies; these pins target the paper environment (PyTorch 2.5) and
+# library releases contemporary with the upstream code. See requirements.lock for
+# the fully resolved set; docs/PAPER_TO_CODE_MAP.md explains the experimental settings.
+torch==2.5.1
+torchvision==0.20.1
+transformers==4.48.3
+# datasets>=4 removed loading-script support; upstream SVHN config relies on the
+# legacy "svhn"/"cropped_digits" builder.
+datasets==3.2.0
+huggingface_hub==0.28.1
+lightning==2.5.0.post0
+hydra-core==1.3.2
+omegaconf==2.3.0
+peft==0.14.0
+numpy==1.26.4
+scipy==1.14.1
+matplotlib==3.9.4
+pandas==2.2.3
+h5py==3.12.1
+tensorboard==2.18.0
+tqdm==4.67.1
+rich==13.9.4
+pyyaml==6.0.2
+pytest==8.3.4

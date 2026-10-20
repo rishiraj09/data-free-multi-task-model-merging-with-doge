@@ -1,0 +1,439 @@
+{
+  "generated_at": "20261018T222449Z",
+  "two_vs_four": {
+    "per_task": {
+      "task-arithmetic": {
+        "mnist": {
+          "pairs_evaluated": 3,
+          "pair_mean_retention": 97.26852751909328,
+          "four_task_retention": 97.62000417555728,
+          "change": 0.3514766564640013
+        },
+        "svhn": {
+          "pairs_evaluated": 3,
+          "pair_mean_retention": 88.59312844644533,
+          "four_task_retention": 90.3202882433641,
+          "change": 1.7271597969187695
+        },
+        "gtsrb": {
+          "pairs_evaluated": 3,
+          "pair_mean_retention": 85.0944602019063,
+          "four_task_retention": 79.02657855879829,
+          "change": -6.067881643108009
+        },
+        "eurosat": {
+          "pairs_evaluated": 3,
+          "pair_mean_retention": 93.57009609006512,
+          "four_task_retention": 73.34579843628916,
+          "change": -20.224297653775963
+        }
+      },
+      "ties": {
+        "mnist": {
+          "pairs_evaluated": 3,
+          "pair_mean_retention": 90.8649648557262,
+          "four_task_retention": 93.81401603375689,
+          "change": 2.949051178030686
+        },
+        "svhn": {
+          "pairs_evaluated": 3,
+          "pair_mean_retention": 73.65427929722112,
+          "four_task_retention": 81.30800145205083,
+          "change": 7.653722154829708
+        },
+        "gtsrb": {
+          "pairs_evaluated": 3,
+          "pair_mean_retention": 70.3116662976556,
+          "four_task_retention": 71.35767102879117,
+          "change": 1.046004731135568
+        },
+        "eurosat": {
+          "pairs_evaluated": 3,
+          "pair_mean_retention": 82.56698057637435,
+          "four_task_retention": 73.8317786246807,
+          "change": -8.735201951693654
+        }
+      },
+      "doge-ta": {
+        "mnist": {
+          "pairs_evaluated": 3,
+          "pair_mean_retention": 99.65856319648488,
+          "four_task_retention": 99.10624159621212,
+          "change": -0.5523216002727622
+        },
+        "svhn": {
+          "pairs_evaluated": 3,
+          "pair_mean_retention": 96.69312418964542,
+          "four_task_retention": 94.08001280471558,
+          "change": -2.6131113849298373
+        },
+        "gtsrb": {
+          "pairs_evaluated": 3,
+          "pair_mean_retention": 97.17685850300109,
+          "four_task_retention": 92.35510731592846,
+          "change": -4.821751187072621
+        },
+        "eurosat": {
+          "pairs_evaluated": 3,
+          "pair_mean_retention": 98.04361574778997,
+          "four_task_retention": 93.08411189089362,
+          "change": -4.959503856896347
+        }
+      }
+    },
+    "overall": {
+      "task-arithmetic": {
+        "pairs_evaluated": 6,
+        "pair_mean_retention": 91.1315530643775,
+        "four_task_mean_retention": 85.07816735350221,
+        "change": -6.05338571087529
+      },
+      "ties": {
+        "pairs_evaluated": 6,
+        "pair_mean_retention": 79.34947275674432,
+        "four_task_mean_retention": 80.07786678481989,
+        "change": 0.7283940280755701
+      },
+      "doge-ta": {
+        "pairs_evaluated": 6,
+        "pair_mean_retention": 97.89304040923034,
+        "four_task_mean_retention": 94.65636840193744,
+        "change": -3.2366720072928956
+      }
+    }
+  },
+  "similarity_vs_retention": {
+    "n_pairs": 6,
+    "order_by_similarity": [
+      "P01",
+      "P04",
+      "P02",
+      "P06",
+      "P05",
+      "P03"
+    ],
+    "methods": {
+      "task-arithmetic": {
+        "order_by_retention": [
+          "P03",
+          "P01",
+          "P02",
+          "P04",
+          "P05",
+          "P06"
+        ],
+        "spearman_rho": 0.028571428571428574,
+        "points": [
+          {
+            "experiment": "P01",
+            "pair": "mnist-svhn",
+            "cosine": 0.15422140785592645,
+            "mean_normalized_retention": 94.5066730662589
+          },
+          {
+            "experiment": "P04",
+            "pair": "svhn-gtsrb",
+            "cosine": 0.06452042258421586,
+            "mean_normalized_retention": 89.46104150190826
+          },
+          {
+            "experiment": "P02",
+            "pair": "mnist-gtsrb",
+            "cosine": 0.051368555809328226,
+            "mean_normalized_retention": 91.4584900475916
+          },
+          {
+            "experiment": "P06",
+            "pair": "gtsrb-eurosat",
+            "cosine": 0.02566892725470132,
+            "mean_normalized_retention": 87.6726544911132
+          },
+          {
+            "experiment": "P05",
+            "pair": "svhn-eurosat",
+            "cosine": 0.024475603637266828,
+            "mean_normalized_retention": 88.37992669151232
+          },
+          {
+            "experiment": "P03",
+            "pair": "mnist-eurosat",
+            "cosine": 0.012655640123464196,
+            "mean_normalized_retention": 95.31053258788074
+          }
+        ]
+      },
+      "ties": {
+        "order_by_retention": [
+          "P03",
+          "P01",
+          "P02",
+          "P06",
+          "P05",
+          "P04"
+        ],
+        "spearman_rho": -0.2,
+        "points": [
+          {
+            "experiment": "P01",
+            "pair": "mnist-svhn",
+            "cosine": 0.15422140785592645,
+            "mean_normalized_retention": 85.14579319381906
+          },
+          {
+            "experiment": "P04",
+            "pair": "svhn-gtsrb",
+            "cosine": 0.06452042258421586,
+            "mean_normalized_retention": 74.21046407503803
+          },
+          {
+            "experiment": "P02",
+            "pair": "mnist-gtsrb",
+            "cosine": 0.051368555809328226,
+            "mean_normalized_retention": 80.01225857909442
+          },
+          {
+            "experiment": "P06",
+            "pair": "gtsrb-eurosat",
+            "cosine": 0.02566892725470132,
+            "mean_normalized_retention": 76.10971530570453
+          },
+          {
+            "experiment": "P05",
+            "pair": "svhn-eurosat",
+            "cosine": 0.024475603637266828,
+            "mean_normalized_retention": 74.43698243535003
+          },
+          {
+            "experiment": "P03",
+            "pair": "mnist-eurosat",
+            "cosine": 0.012655640123464196,
+            "mean_normalized_retention": 86.18162295145984
+          }
+        ]
+      },
+      "doge-ta": {
+        "order_by_retention": [
+          "P03",
+          "P02",
+          "P01",
+          "P04",
+          "P06",
+          "P05"
+        ],
+        "spearman_rho": -0.028571428571428574,
+        "points": [
+          {
+            "experiment": "P01",
+            "pair": "mnist-svhn",
+            "cosine": 0.15422140785592645,
+            "mean_normalized_retention": 98.19477879686661
+          },
+          {
+            "experiment": "P04",
+            "pair": "svhn-gtsrb",
+            "cosine": 0.06452042258421586,
+            "mean_normalized_retention": 97.40363914046435
+          },
+          {
+            "experiment": "P02",
+            "pair": "mnist-gtsrb",
+            "cosine": 0.051368555809328226,
+            "mean_normalized_retention": 98.65042081358138
+          },
+          {
+            "experiment": "P06",
+            "pair": "gtsrb-eurosat",
+            "cosine": 0.02566892725470132,
+            "mean_normalized_retention": 97.14275289170615
+          },
+          {
+            "experiment": "P05",
+            "pair": "svhn-eurosat",
+            "cosine": 0.024475603637266828,
+            "mean_normalized_retention": 96.73549983411257
+          },
+          {
+            "experiment": "P03",
+            "pair": "mnist-eurosat",
+            "cosine": 0.012655640123464196,
+            "mean_normalized_retention": 99.23115097865093
+          }
+        ]
+      }
+    }
+  },
+  "hypotheses": {
+    "H1": {
+      "statement": "DOGE has higher mean accuracy than TA and TIES in each experiment",
+      "experiments": 7,
+      "doge_wins": [
+        "F01",
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06"
+      ],
+      "values": {
+        "F01": {
+          "task-arithmetic": 83.9732974767685,
+          "ties": 79.0583536028862,
+          "doge-ta": 93.44216734170914
+        },
+        "P01": {
+          "task-arithmetic": 93.06228458881378,
+          "ties": 83.90543162822723,
+          "doge-ta": 96.66520953178406
+        },
+        "P02": {
+          "task-arithmetic": 90.78408479690552,
+          "ties": 79.43853437900543,
+          "doge-ta": 97.90749847888947
+        },
+        "P03": {
+          "task-arithmetic": 94.67296302318573,
+          "ties": 85.60962975025177,
+          "doge-ta": 98.56444299221039
+        },
+        "P04": {
+          "task-arithmetic": 87.73449659347534,
+          "ties": 72.77111411094666,
+          "doge-ta": 95.54109573364258
+        },
+        "P05": {
+          "task-arithmetic": 86.80594563484192,
+          "ties": 73.13516139984131,
+          "doge-ta": 94.9734628200531
+        },
+        "P06": {
+          "task-arithmetic": 86.79295480251312,
+          "ties": 75.34784972667694,
+          "doge-ta": 96.16288244724274
+        }
+      },
+      "verdict": "supported"
+    },
+    "H2": {
+      "statement": "DOGE has higher worst-task accuracy than the baselines",
+      "experiments": 7,
+      "doge_wins": [
+        "F01",
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06"
+      ],
+      "values": {
+        "F01": {
+          "task-arithmetic": 72.66666889190674,
+          "ties": 70.57799100875854,
+          "doge-ta": 91.34600162506104
+        },
+        "P01": {
+          "task-arithmetic": 88.1645679473877,
+          "ties": 74.30086135864258,
+          "doge-ta": 94.03042197227478
+        },
+        "P02": {
+          "task-arithmetic": 85.36816835403442,
+          "ties": 69.89706754684448,
+          "doge-ta": 96.63499593734741
+        },
+        "P03": {
+          "task-arithmetic": 92.92592406272888,
+          "ties": 82.25926160812378,
+          "doge-ta": 97.88888692855835
+        },
+        "P04": {
+          "task-arithmetic": 86.53998374938965,
+          "ties": 70.92636823654175,
+          "doge-ta": 94.77182030677795
+        },
+        "P05": {
+          "task-arithmetic": 81.42670392990112,
+          "ties": 66.01106524467468,
+          "doge-ta": 93.354332447052
+        },
+        "P06": {
+          "task-arithmetic": 80.58590888977051,
+          "ties": 67.80681014060974,
+          "doge-ta": 95.39983868598938
+        }
+      },
+      "verdict": "supported"
+    },
+    "H3": {
+      "statement": "Every method retains less when merging four models than two",
+      "overall_lower_in_four": {
+        "task-arithmetic": true,
+        "ties": false,
+        "doge-ta": true
+      },
+      "tasks_lower_in_four_of_4": {
+        "task-arithmetic": 2,
+        "ties": 1,
+        "doge-ta": 4
+      },
+      "verdict": "partly supported"
+    },
+    "H4": {
+      "statement": "DOGE's retention drop from two to four models is smaller than the baselines'",
+      "drop_points": {
+        "task-arithmetic": 6.05338571087529,
+        "ties": -0.7283940280755701,
+        "doge-ta": 3.2366720072928956
+      },
+      "smaller_than": [
+        "task-arithmetic"
+      ],
+      "verdict": "partly supported"
+    },
+    "H5": {
+      "statement": "Pairs with higher task-vector cosine similarity retain more (descriptive)",
+      "n_pairs": 6,
+      "spearman_rho": {
+        "task-arithmetic": 0.028571428571428574,
+        "ties": -0.2,
+        "doge-ta": -0.028571428571428574
+      },
+      "rule": "supported if rho >= 0.5 for every method; no relationship if |rho| < 0.5 for every method",
+      "verdict": "not supported: no consistent rank relationship (descriptive)"
+    },
+    "H6": {
+      "statement": "DOGE loses less performance than the baselines on dissimilar pairs",
+      "pairs": [
+        "P03",
+        "P05",
+        "P06"
+      ],
+      "retention_gap_points": {
+        "P03": {
+          "task-arithmetic": 4.6894674121192566,
+          "ties": 13.818377048540157,
+          "doge-ta": 0.7688490213490695
+        },
+        "P05": {
+          "task-arithmetic": 11.620073308487676,
+          "ties": 25.563017564649968,
+          "doge-ta": 3.2645001658874264
+        },
+        "P06": {
+          "task-arithmetic": 12.327345508886793,
+          "ties": 23.890284694295474,
+          "doge-ta": 2.8572471082938478
+        }
+      },
+      "doge_wins": [
+        "P03",
+        "P05",
+        "P06"
+      ],
+      "verdict": "supported"
+    }
+  },
+  "tables": "results/processed/analysis__20261018T222449Z",
+  "figures": "figures/analysis__20261018T222449Z"
+}

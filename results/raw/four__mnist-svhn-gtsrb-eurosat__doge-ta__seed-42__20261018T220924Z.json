@@ -1,0 +1,2571 @@
+{
+  "run_id": "four__mnist-svhn-gtsrb-eurosat__doge-ta__seed-42",
+  "kind": "merge",
+  "timestamp": "2026-10-18T22:07:39.466603+00:00",
+  "status": "complete",
+  "fast_dev_run": false,
+  "method": "doge-ta",
+  "task_set": [
+    "mnist",
+    "svhn",
+    "gtsrb",
+    "eurosat"
+  ],
+  "task_count": 4,
+  "seed": 42,
+  "base_model": "openai/clip-vit-base-patch32",
+  "config_id": "canonical-v1",
+  "method_config": {
+    "_target_": "fusion_bench.method.DOGE_TA_Algorithm",
+    "subspace": 6,
+    "K": 30,
+    "lamda": 0.07
+  },
+  "evaluation_config": {
+    "batch_size": 128,
+    "num_workers": 8,
+    "precision": "float32"
+  },
+  "device": {
+    "selected_device": "cuda",
+    "canonical": true,
+    "cuda_available": true,
+    "mps_available": false,
+    "cuda_version": "12.4",
+    "cudnn_version": 90100,
+    "gpus": [
+      {
+        "name": "NVIDIA GeForce RTX 4090",
+        "total_memory_mb": 24082
+      }
+    ]
+  },
+  "precision": "float32",
+  "software": {
+    "python": "3.10.18",
+    "torch": "2.5.1",
+    "torchvision": "0.20.1",
+    "transformers": "4.48.3",
+    "datasets": "3.2.0",
+    "huggingface_hub": "0.28.1",
+    "lightning": "2.5.0.post0",
+    "hydra-core": "1.3.2",
+    "peft": "0.14.0",
+    "numpy": "1.26.4",
+    "scipy": "1.14.1",
+    "fusion_bench": "0.2.11",
+    "doge_repo_commit": "ca0a0a10c45bc0965f52f0815d6a6581ee103f85"
+  },
+  "provenance": {
+    "config_files": {
+      "configs/canonical_methods.yaml": "5936debf78c0c65b06d798b45c504f7d3a89620bbdf736922a5b2cb769413f31",
+      "configs/experiments.yaml": "f37d841124b27de500f8588ee86e3c7fc78b3e47e89be4285dd405e111d53260",
+      "configs/pins.yaml": "9a3bfab1d75f13811826a6b4e1900799a75cb00995ca6ffe39473bbfd033a148"
+    },
+    "code_files": {
+      "src/doge_exam/runner.py": "097033831fdbf5f1e46c10acbd7c45906ab8afc2f944dca55ec7858be1dadd58",
+      "src/doge_exam/metrics.py": "7add6fc56994099ab4ff9c7082634cab4b2fda2142c391bb8481f90a2eb72be0",
+      "src/doge_exam/probes.py": "a30e193183826f0f4e86c1f835f6215cdc1c54045ef7497f40f4d3f33e47b8a9",
+      "scripts/run_experiment.py": "170a023c8d6235d2900e79810e35ddbd0bd2b21885f97edb7477e73b33ecb7ca"
+    },
+    "git_commit": null
+  },
+  "notes": [],
+  "experiment": "F01",
+  "checkpoints": {
+    "_pretrained_": {
+      "repo_id": "openai/clip-vit-base-patch32",
+      "revision": "3d74acf9a28c67741b2f4f2ea7635f0aaf6f0268"
+    },
+    "mnist": {
+      "repo_id": "tanganke/clip-vit-base-patch32_mnist",
+      "revision": "28dca299b68f294bb368533172496dbde3901f3e"
+    },
+    "svhn": {
+      "repo_id": "tanganke/clip-vit-base-patch32_svhn",
+      "revision": "7da249d42c97bb5117832d37d6e54acc50dec7e0"
+    },
+    "gtsrb": {
+      "repo_id": "tanganke/clip-vit-base-patch32_gtsrb",
+      "revision": "7b11ced426cc9cd0430650be19d75748f3bd64d0"
+    },
+    "eurosat": {
+      "repo_id": "tanganke/clip-vit-base-patch32_eurosat",
+      "revision": "7c114f53697b7acca1147a0d1e8b7c769979b57b"
+    }
+  },
+  "merge_time_seconds": 72.21023082733154,
+  "merge_finished_at": "2026-10-18T22:08:52.081696+00:00",
+  "peak_memory_mb": 1824.3310546875,
+  "peak_cpu_rss_mb": 6958.0234375,
+  "merged_weights_sha256": "fdd078d9ddeae9c664eaa78e1cd870fb83340b9ea9b9736239d3065ceed7ffd2",
+  "merged_weights_finite": true,
+  "data_access_during_merge": {
+    "counts": {},
+    "data_accessed": false
+  },
+  "doge_probe": {
+    "layers": 72,
+    "iterations_per_layer": [
+      400
+    ],
+    "objective_all_finite": true,
+    "layers_with_lower_final_objective": 72,
+    "delta_finite": true,
+    "lamdas_finite": true,
+    "grads_finite_at_checks": true,
+    "max_projected_grad_in_subspace_ratio": 0.0005032197223044932,
+    "max_projection_idempotence_error": 0.00010472536087036133,
+    "projection_ranks": [
+      128
+    ],
+    "max_delta_in_subspace_ratio": 0.2535330653190613,
+    "per_layer_objective": {
+      "vision_model.encoder.layers.0.self_attn.k_proj.weight": {
+        "iterations": 400,
+        "first": 2.489010148565285e-05,
+        "last": 2.3083428835936087e-19,
+        "min": 2.3083428835936087e-19,
+        "max": 2.489010148565285e-05,
+        "finite": true
+      },
+      "vision_model.encoder.layers.0.self_attn.v_proj.weight": {
+        "iterations": 400,
+        "first": 3.1931740522850305e-06,
+        "last": 2.330684369547941e-22,
+        "min": 2.315043466607943e-22,
+        "max": 3.1931740522850305e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.0.self_attn.q_proj.weight": {
+        "iterations": 400,
+        "first": 1.9252780475653708e-05,
+        "last": 2.3764824681640326e-20,
+        "min": 2.3764824681640326e-20,
+        "max": 1.9252780475653708e-05,
+        "finite": true
+      },
+      "vision_model.encoder.layers.0.self_attn.out_proj.weight": {
+        "iterations": 400,
+        "first": 1.8255576605952228e-06,
+        "last": 4.9371938914975366e-23,
+        "min": 4.910354950235745e-23,
+        "max": 1.8255576605952228e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.0.mlp.fc1.weight": {
+        "iterations": 400,
+        "first": 4.01330144086387e-05,
+        "last": 1.2069365175897377e-19,
+        "min": 1.2069365175897377e-19,
+        "max": 4.01330144086387e-05,
+        "finite": true
+      },
+      "vision_model.encoder.layers.0.mlp.fc2.weight": {
+        "iterations": 400,
+        "first": 4.795355926034972e-05,
+        "last": 1.8838153109145832e-20,
+        "min": 1.8838153109145832e-20,
+        "max": 4.795355926034972e-05,
+        "finite": true
+      },
+      "vision_model.encoder.layers.1.self_attn.k_proj.weight": {
+        "iterations": 400,
+        "first": 1.081686423276551e-05,
+        "last": 2.2994637540306412e-21,
+        "min": 2.2994637540306412e-21,
+        "max": 1.081686423276551e-05,
+        "finite": true
+      },
+      "vision_model.encoder.layers.1.self_attn.v_proj.weight": {
+        "iterations": 400,
+        "first": 2.1101102447573794e-06,
+        "last": 1.4129238448493057e-22,
+        "min": 1.4097108459367767e-22,
+        "max": 2.1101102447573794e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.1.self_attn.q_proj.weight": {
+        "iterations": 400,
+        "first": 1.0010776350100059e-05,
+        "last": 1.147078981967273e-21,
+        "min": 1.147078981967273e-21,
+        "max": 1.0010776350100059e-05,
+        "finite": true
+      },
+      "vision_model.encoder.layers.1.self_attn.out_proj.weight": {
+        "iterations": 400,
+        "first": 1.557276732455648e-06,
+        "last": 1.3539680411076875e-22,
+        "min": 1.3051712512123779e-22,
+        "max": 1.557276732455648e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.1.mlp.fc1.weight": {
+        "iterations": 400,
+        "first": 2.6677778805606067e-05,
+        "last": 5.303432146673224e-21,
+        "min": 5.303432146673224e-21,
+        "max": 2.6677778805606067e-05,
+        "finite": true
+      },
+      "vision_model.encoder.layers.1.mlp.fc2.weight": {
+        "iterations": 400,
+        "first": 2.858812513295561e-05,
+        "last": 2.5970779666000004e-20,
+        "min": 2.5910653975225056e-20,
+        "max": 2.858812513295561e-05,
+        "finite": true
+      },
+      "vision_model.encoder.layers.2.self_attn.k_proj.weight": {
+        "iterations": 400,
+        "first": 1.1161773727508262e-05,
+        "last": 2.241325356599416e-20,
+        "min": 2.2293696886911837e-20,
+        "max": 1.1161773727508262e-05,
+        "finite": true
+      },
+      "vision_model.encoder.layers.2.self_attn.v_proj.weight": {
+        "iterations": 400,
+        "first": 2.477541329426458e-06,
+        "last": 4.677427675206775e-23,
+        "min": 4.5619939744901465e-23,
+        "max": 2.477541329426458e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.2.self_attn.q_proj.weight": {
+        "iterations": 400,
+        "first": 1.0354348887631204e-05,
+        "last": 1.2873862621973126e-21,
+        "min": 1.2873862621973126e-21,
+        "max": 1.0354348887631204e-05,
+        "finite": true
+      },
+      "vision_model.encoder.layers.2.self_attn.out_proj.weight": {
+        "iterations": 400,
+        "first": 1.747496298776241e-06,
+        "last": 4.814252759318101e-23,
+        "min": 4.754859737308373e-23,
+        "max": 1.747496298776241e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.2.mlp.fc1.weight": {
+        "iterations": 400,
+        "first": 2.4430250050500035e-05,
+        "last": 4.0509886108013086e-21,
+        "min": 4.0509886108013086e-21,
+        "max": 2.4430250050500035e-05,
+        "finite": true
+      },
+      "vision_model.encoder.layers.2.mlp.fc2.weight": {
+        "iterations": 400,
+        "first": 3.484127591946162e-05,
+        "last": 3.4023958078223394e-21,
+        "min": 3.4023958078223394e-21,
+        "max": 3.484127591946162e-05,
+        "finite": true
+      },
+      "vision_model.encoder.layers.3.self_attn.k_proj.weight": {
+        "iterations": 400,
+        "first": 8.639618499728385e-06,
+        "last": 2.2261936463343426e-21,
+        "min": 2.2159758655060386e-21,
+        "max": 8.639618499728385e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.3.self_attn.v_proj.weight": {
+        "iterations": 400,
+        "first": 1.6591785652053659e-06,
+        "last": 2.8078500490270474e-22,
+        "min": 2.8078500490270474e-22,
+        "max": 1.6591785652053659e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.3.self_attn.q_proj.weight": {
+        "iterations": 400,
+        "first": 7.985072443261743e-06,
+        "last": 2.4015399822726372e-21,
+        "min": 2.4015399822726372e-21,
+        "max": 7.985072443261743e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.3.self_attn.out_proj.weight": {
+        "iterations": 400,
+        "first": 1.4518686839437578e-06,
+        "last": 2.4872014413375007e-23,
+        "min": 2.4872014413375007e-23,
+        "max": 1.4518686839437578e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.3.mlp.fc1.weight": {
+        "iterations": 400,
+        "first": 2.4370157916564494e-05,
+        "last": 6.402188917465769e-21,
+        "min": 6.402188917465769e-21,
+        "max": 2.4370157916564494e-05,
+        "finite": true
+      },
+      "vision_model.encoder.layers.3.mlp.fc2.weight": {
+        "iterations": 400,
+        "first": 3.1335373932961375e-05,
+        "last": 2.2210465068947957e-20,
+        "min": 2.2132645467882617e-20,
+        "max": 3.1335373932961375e-05,
+        "finite": true
+      },
+      "vision_model.encoder.layers.4.self_attn.k_proj.weight": {
+        "iterations": 400,
+        "first": 8.315556442539673e-06,
+        "last": 6.9565101916981855e-22,
+        "min": 6.94681666889483e-22,
+        "max": 8.315556442539673e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.4.self_attn.v_proj.weight": {
+        "iterations": 400,
+        "first": 1.8736781157713267e-06,
+        "last": 1.7360256206274725e-22,
+        "min": 1.7084268485417723e-22,
+        "max": 1.8736781157713267e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.4.self_attn.q_proj.weight": {
+        "iterations": 400,
+        "first": 8.743985745240934e-06,
+        "last": 2.8357035790089233e-21,
+        "min": 2.8357035790089233e-21,
+        "max": 8.743985745240934e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.4.self_attn.out_proj.weight": {
+        "iterations": 400,
+        "first": 2.0483807929849718e-06,
+        "last": 6.516006223254938e-23,
+        "min": 6.516006223254938e-23,
+        "max": 2.0483807929849718e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.4.mlp.fc1.weight": {
+        "iterations": 400,
+        "first": 2.6920119125861675e-05,
+        "last": 1.2210827277810723e-20,
+        "min": 1.2210827277810723e-20,
+        "max": 2.6920119125861675e-05,
+        "finite": true
+      },
+      "vision_model.encoder.layers.4.mlp.fc2.weight": {
+        "iterations": 400,
+        "first": 3.5892953746952116e-05,
+        "last": 2.2907745205793914e-21,
+        "min": 2.2907745205793914e-21,
+        "max": 3.5892953746952116e-05,
+        "finite": true
+      },
+      "vision_model.encoder.layers.5.self_attn.k_proj.weight": {
+        "iterations": 400,
+        "first": 9.802604836295359e-06,
+        "last": 2.602298897981888e-22,
+        "min": 2.602298897981888e-22,
+        "max": 9.802604836295359e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.5.self_attn.v_proj.weight": {
+        "iterations": 400,
+        "first": 1.6056615095294546e-06,
+        "last": 7.417318303882119e-23,
+        "min": 7.262575348713965e-23,
+        "max": 1.6056615095294546e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.5.self_attn.q_proj.weight": {
+        "iterations": 400,
+        "first": 9.255913937522564e-06,
+        "last": 2.980186748083292e-22,
+        "min": 2.947939628890795e-22,
+        "max": 9.255913937522564e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.5.self_attn.out_proj.weight": {
+        "iterations": 400,
+        "first": 1.5957310779413092e-06,
+        "last": 2.6133737477847218e-23,
+        "min": 2.6133737477847218e-23,
+        "max": 1.5957310779413092e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.5.mlp.fc1.weight": {
+        "iterations": 400,
+        "first": 2.8344826205284335e-05,
+        "last": 1.0890099336137702e-20,
+        "min": 1.0890099336137702e-20,
+        "max": 2.8344826205284335e-05,
+        "finite": true
+      },
+      "vision_model.encoder.layers.5.mlp.fc2.weight": {
+        "iterations": 400,
+        "first": 2.679120734683238e-05,
+        "last": 3.6647110167136e-22,
+        "min": 3.6647110167136e-22,
+        "max": 2.679120734683238e-05,
+        "finite": true
+      },
+      "vision_model.encoder.layers.6.self_attn.k_proj.weight": {
+        "iterations": 400,
+        "first": 8.205857739085332e-06,
+        "last": 2.894243571011956e-22,
+        "min": 2.832560454239935e-22,
+        "max": 8.205857739085332e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.6.self_attn.v_proj.weight": {
+        "iterations": 400,
+        "first": 1.3437097550195176e-06,
+        "last": 2.2982560016738606e-22,
+        "min": 2.2545584086698996e-22,
+        "max": 1.3437097550195176e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.6.self_attn.q_proj.weight": {
+        "iterations": 400,
+        "first": 8.346338290721178e-06,
+        "last": 3.627025427331637e-22,
+        "min": 3.627025427331637e-22,
+        "max": 8.346338290721178e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.6.self_attn.out_proj.weight": {
+        "iterations": 400,
+        "first": 1.3325084182724822e-06,
+        "last": 3.508959329328722e-23,
+        "min": 3.4695591981009156e-23,
+        "max": 1.3325084182724822e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.6.mlp.fc1.weight": {
+        "iterations": 400,
+        "first": 3.160178675898351e-05,
+        "last": 8.095662699289798e-21,
+        "min": 8.095662699289798e-21,
+        "max": 3.160178675898351e-05,
+        "finite": true
+      },
+      "vision_model.encoder.layers.6.mlp.fc2.weight": {
+        "iterations": 400,
+        "first": 2.306761234649457e-05,
+        "last": 2.9252353790014183e-21,
+        "min": 2.9252353790014183e-21,
+        "max": 2.306761234649457e-05,
+        "finite": true
+      },
+      "vision_model.encoder.layers.7.self_attn.k_proj.weight": {
+        "iterations": 400,
+        "first": 9.188043804897461e-06,
+        "last": 2.94946595483554e-21,
+        "min": 2.9279140224694123e-21,
+        "max": 9.188043804897461e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.7.self_attn.v_proj.weight": {
+        "iterations": 400,
+        "first": 1.9055556776947924e-06,
+        "last": 9.165993214461501e-23,
+        "min": 9.004030604288765e-23,
+        "max": 1.9055556776947924e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.7.self_attn.q_proj.weight": {
+        "iterations": 400,
+        "first": 8.924213034333661e-06,
+        "last": 2.499991842728137e-22,
+        "min": 2.499991842728137e-22,
+        "max": 8.924213034333661e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.7.self_attn.out_proj.weight": {
+        "iterations": 400,
+        "first": 1.5684829577367054e-06,
+        "last": 8.746734216828942e-22,
+        "min": 8.676199702047107e-22,
+        "max": 1.5684829577367054e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.7.mlp.fc1.weight": {
+        "iterations": 400,
+        "first": 3.39279868057929e-05,
+        "last": 3.899937676130883e-21,
+        "min": 3.899937676130883e-21,
+        "max": 3.39279868057929e-05,
+        "finite": true
+      },
+      "vision_model.encoder.layers.7.mlp.fc2.weight": {
+        "iterations": 400,
+        "first": 2.5011710022226907e-05,
+        "last": 2.979578237189311e-20,
+        "min": 2.979578237189311e-20,
+        "max": 2.5011710022226907e-05,
+        "finite": true
+      },
+      "vision_model.encoder.layers.8.self_attn.k_proj.weight": {
+        "iterations": 400,
+        "first": 9.223579581885133e-06,
+        "last": 3.2950788168663874e-22,
+        "min": 3.235528275111105e-22,
+        "max": 9.223579581885133e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.8.self_attn.v_proj.weight": {
+        "iterations": 400,
+        "first": 2.5996876047429396e-06,
+        "last": 3.069635749235175e-23,
+        "min": 3.069635749235175e-23,
+        "max": 2.5996876047429396e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.8.self_attn.q_proj.weight": {
+        "iterations": 400,
+        "first": 1.0004361683968455e-05,
+        "last": 1.0878840713298387e-21,
+        "min": 1.0650348224951952e-21,
+        "max": 1.0004361683968455e-05,
+        "finite": true
+      },
+      "vision_model.encoder.layers.8.self_attn.out_proj.weight": {
+        "iterations": 400,
+        "first": 2.912106083385879e-06,
+        "last": 2.3167034823880178e-22,
+        "min": 2.289044630655776e-22,
+        "max": 2.912106083385879e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.8.mlp.fc1.weight": {
+        "iterations": 400,
+        "first": 3.8414309528889135e-05,
+        "last": 5.983486085704052e-21,
+        "min": 5.983486085704052e-21,
+        "max": 3.8414309528889135e-05,
+        "finite": true
+      },
+      "vision_model.encoder.layers.8.mlp.fc2.weight": {
+        "iterations": 400,
+        "first": 4.857653038925491e-05,
+        "last": 5.607693894453376e-20,
+        "min": 5.604283713131156e-20,
+        "max": 4.857653038925491e-05,
+        "finite": true
+      },
+      "vision_model.encoder.layers.9.self_attn.k_proj.weight": {
+        "iterations": 400,
+        "first": 6.234059128473746e-06,
+        "last": 4.660177243584636e-22,
+        "min": 4.604633357921408e-22,
+        "max": 6.234059128473746e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.9.self_attn.v_proj.weight": {
+        "iterations": 400,
+        "first": 2.238543856947217e-06,
+        "last": 5.82094024857598e-23,
+        "min": 5.663561866895664e-23,
+        "max": 2.238543856947217e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.9.self_attn.q_proj.weight": {
+        "iterations": 400,
+        "first": 5.784833774669096e-06,
+        "last": 7.13414399706968e-22,
+        "min": 7.035577026030891e-22,
+        "max": 5.784833774669096e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.9.self_attn.out_proj.weight": {
+        "iterations": 400,
+        "first": 2.1238204226392554e-06,
+        "last": 4.334963592499884e-22,
+        "min": 4.242836755673574e-22,
+        "max": 2.1238204226392554e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.9.mlp.fc1.weight": {
+        "iterations": 400,
+        "first": 3.682015812955797e-05,
+        "last": 1.4674290695441548e-20,
+        "min": 1.4674290695441548e-20,
+        "max": 3.682015812955797e-05,
+        "finite": true
+      },
+      "vision_model.encoder.layers.9.mlp.fc2.weight": {
+        "iterations": 400,
+        "first": 5.1770741265499964e-05,
+        "last": 3.249007926362738e-21,
+        "min": 3.249007926362738e-21,
+        "max": 5.1770741265499964e-05,
+        "finite": true
+      },
+      "vision_model.encoder.layers.10.self_attn.k_proj.weight": {
+        "iterations": 400,
+        "first": 6.562857834069291e-06,
+        "last": 1.451245571665239e-22,
+        "min": 1.438272406980081e-22,
+        "max": 6.562857834069291e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.10.self_attn.v_proj.weight": {
+        "iterations": 400,
+        "first": 3.3385590541001875e-06,
+        "last": 6.223758627637265e-22,
+        "min": 6.192222366783681e-22,
+        "max": 3.3385590541001875e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.10.self_attn.q_proj.weight": {
+        "iterations": 400,
+        "first": 6.311716333584627e-06,
+        "last": 6.881397506875682e-22,
+        "min": 6.881397506875682e-22,
+        "max": 6.311716333584627e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.10.self_attn.out_proj.weight": {
+        "iterations": 400,
+        "first": 3.6637250104831764e-06,
+        "last": 2.3642764650294037e-22,
+        "min": 2.2722930115612267e-22,
+        "max": 3.6637250104831764e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.10.mlp.fc1.weight": {
+        "iterations": 400,
+        "first": 6.478242721641436e-05,
+        "last": 2.3070120223663145e-17,
+        "min": 2.3070120223663145e-17,
+        "max": 6.478242721641436e-05,
+        "finite": true
+      },
+      "vision_model.encoder.layers.10.mlp.fc2.weight": {
+        "iterations": 400,
+        "first": 0.0001173499331343919,
+        "last": 8.999752981922615e-19,
+        "min": 8.999752981922615e-19,
+        "max": 0.0001173499331343919,
+        "finite": true
+      },
+      "vision_model.encoder.layers.11.self_attn.k_proj.weight": {
+        "iterations": 400,
+        "first": 9.471236808167305e-06,
+        "last": 1.6814324070183438e-22,
+        "min": 1.6814324070183438e-22,
+        "max": 9.471236808167305e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.11.self_attn.v_proj.weight": {
+        "iterations": 400,
+        "first": 1.6393527403124608e-05,
+        "last": 6.031788102039607e-21,
+        "min": 6.0001322877381144e-21,
+        "max": 1.6393527403124608e-05,
+        "finite": true
+      },
+      "vision_model.encoder.layers.11.self_attn.q_proj.weight": {
+        "iterations": 400,
+        "first": 9.264527761843055e-06,
+        "last": 1.9470833994443093e-22,
+        "min": 1.9470833994443093e-22,
+        "max": 9.264527761843055e-06,
+        "finite": true
+      },
+      "vision_model.encoder.layers.11.self_attn.out_proj.weight": {
+        "iterations": 400,
+        "first": 1.4923793969501276e-05,
+        "last": 1.1626490414114499e-20,
+        "min": 1.1626490414114499e-20,
+        "max": 1.4923793969501276e-05,
+        "finite": true
+      },
+      "vision_model.encoder.layers.11.mlp.fc1.weight": {
+        "iterations": 400,
+        "first": 0.00020786198729183525,
+        "last": 2.9102664722557847e-11,
+        "min": 2.9102664722557847e-11,
+        "max": 0.00020786198729183525,
+        "finite": true
+      },
+      "vision_model.encoder.layers.11.mlp.fc2.weight": {
+        "iterations": 400,
+        "first": 5.507013338501565e-05,
+        "last": 4.686823032538229e-14,
+        "min": 4.686823032538229e-14,
+        "max": 5.507013338501565e-05,
+        "finite": true
+      }
+    },
+    "checks": [
+      {
+        "layer": "vision_model.encoder.layers.0.self_attn.k_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0002934572985395789,
+        "projection_idempotence_error": 6.54458999633789e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.0.self_attn.k_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00047225423622876406,
+        "delta_in_subspace_ratio": 0.2229185849428177
+      },
+      {
+        "layer": "vision_model.encoder.layers.0.self_attn.k_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0005032197223044932,
+        "delta_in_subspace_ratio": 0.22291478514671326
+      },
+      {
+        "layer": "vision_model.encoder.layers.0.self_attn.v_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00016958285414148122,
+        "projection_idempotence_error": 7.474422454833984e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.0.self_attn.v_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00010306966578355059,
+        "delta_in_subspace_ratio": 0.20398569107055664
+      },
+      {
+        "layer": "vision_model.encoder.layers.0.self_attn.v_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00013756289263255894,
+        "delta_in_subspace_ratio": 0.20398609340190887
+      },
+      {
+        "layer": "vision_model.encoder.layers.0.self_attn.q_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00027041538851335645,
+        "projection_idempotence_error": 6.401538848876953e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.0.self_attn.q_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0003977474116254598,
+        "delta_in_subspace_ratio": 0.21226514875888824
+      },
+      {
+        "layer": "vision_model.encoder.layers.0.self_attn.q_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0003756785881705582,
+        "delta_in_subspace_ratio": 0.21226458251476288
+      },
+      {
+        "layer": "vision_model.encoder.layers.0.self_attn.out_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00017029308946803212,
+        "projection_idempotence_error": 4.431605339050293e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.0.self_attn.out_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00013339023280423135,
+        "delta_in_subspace_ratio": 0.14816641807556152
+      },
+      {
+        "layer": "vision_model.encoder.layers.0.self_attn.out_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 9.833007061388344e-05,
+        "delta_in_subspace_ratio": 0.14816731214523315
+      },
+      {
+        "layer": "vision_model.encoder.layers.0.mlp.fc1.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0001980841188924387,
+        "projection_idempotence_error": 2.6211142539978027e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.0.mlp.fc1.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00015641134814359248,
+        "delta_in_subspace_ratio": 0.09983993321657181
+      },
+      {
+        "layer": "vision_model.encoder.layers.0.mlp.fc1.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00020475643395911902,
+        "delta_in_subspace_ratio": 0.09984003007411957
+      },
+      {
+        "layer": "vision_model.encoder.layers.0.mlp.fc2.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00016996770864352584,
+        "projection_idempotence_error": 3.4809112548828125e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.0.mlp.fc2.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 7.154004561016336e-05,
+        "delta_in_subspace_ratio": 0.19699415564537048
+      },
+      {
+        "layer": "vision_model.encoder.layers.0.mlp.fc2.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00020641612354665995,
+        "delta_in_subspace_ratio": 0.19699424505233765
+      },
+      {
+        "layer": "vision_model.encoder.layers.1.self_attn.k_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0002288413670612499,
+        "projection_idempotence_error": 5.7369470596313477e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.1.self_attn.k_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00022930369595997036,
+        "delta_in_subspace_ratio": 0.18767918646335602
+      },
+      {
+        "layer": "vision_model.encoder.layers.1.self_attn.k_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00021530789672397077,
+        "delta_in_subspace_ratio": 0.1876794397830963
+      },
+      {
+        "layer": "vision_model.encoder.layers.1.self_attn.v_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00017340837803203613,
+        "projection_idempotence_error": 7.224082946777344e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.1.self_attn.v_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00012408145994413644,
+        "delta_in_subspace_ratio": 0.17331668734550476
+      },
+      {
+        "layer": "vision_model.encoder.layers.1.self_attn.v_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00014810418360866606,
+        "delta_in_subspace_ratio": 0.17331652343273163
+      },
+      {
+        "layer": "vision_model.encoder.layers.1.self_attn.q_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00023512938059866428,
+        "projection_idempotence_error": 6.204843521118164e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.1.self_attn.q_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0002291015989612788,
+        "delta_in_subspace_ratio": 0.18128089606761932
+      },
+      {
+        "layer": "vision_model.encoder.layers.1.self_attn.q_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0001534418115625158,
+        "delta_in_subspace_ratio": 0.18128110468387604
+      },
+      {
+        "layer": "vision_model.encoder.layers.1.self_attn.out_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00015433935914188623,
+        "projection_idempotence_error": 3.8564205169677734e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.1.self_attn.out_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00011190555233042687,
+        "delta_in_subspace_ratio": 0.1438569724559784
+      },
+      {
+        "layer": "vision_model.encoder.layers.1.self_attn.out_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00013265850429888815,
+        "delta_in_subspace_ratio": 0.14385618269443512
+      },
+      {
+        "layer": "vision_model.encoder.layers.1.mlp.fc1.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00015622573846485466,
+        "projection_idempotence_error": 2.3968517780303955e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.1.mlp.fc1.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 9.308665903517976e-05,
+        "delta_in_subspace_ratio": 0.12843236327171326
+      },
+      {
+        "layer": "vision_model.encoder.layers.1.mlp.fc1.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 8.404550317209214e-05,
+        "delta_in_subspace_ratio": 0.12843133509159088
+      },
+      {
+        "layer": "vision_model.encoder.layers.1.mlp.fc2.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00016470334958285093,
+        "projection_idempotence_error": 5.361437797546387e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.1.mlp.fc2.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 8.128322224365547e-05,
+        "delta_in_subspace_ratio": 0.17015118896961212
+      },
+      {
+        "layer": "vision_model.encoder.layers.1.mlp.fc2.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00018132617697119713,
+        "delta_in_subspace_ratio": 0.170151025056839
+      },
+      {
+        "layer": "vision_model.encoder.layers.2.self_attn.k_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00024145726638380438,
+        "projection_idempotence_error": 5.492568016052246e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.2.self_attn.k_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0002346151159144938,
+        "delta_in_subspace_ratio": 0.17680568993091583
+      },
+      {
+        "layer": "vision_model.encoder.layers.2.self_attn.k_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00032889979775063694,
+        "delta_in_subspace_ratio": 0.176805317401886
+      },
+      {
+        "layer": "vision_model.encoder.layers.2.self_attn.v_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00017555002705194056,
+        "projection_idempotence_error": 6.309151649475098e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.2.self_attn.v_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00013023894280195236,
+        "delta_in_subspace_ratio": 0.17544451355934143
+      },
+      {
+        "layer": "vision_model.encoder.layers.2.self_attn.v_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 9.056575800059363e-05,
+        "delta_in_subspace_ratio": 0.1754443198442459
+      },
+      {
+        "layer": "vision_model.encoder.layers.2.self_attn.q_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00025727710453793406,
+        "projection_idempotence_error": 5.093216896057129e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.2.self_attn.q_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00028665183344855905,
+        "delta_in_subspace_ratio": 0.1754801869392395
+      },
+      {
+        "layer": "vision_model.encoder.layers.2.self_attn.q_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00016005417273845524,
+        "delta_in_subspace_ratio": 0.17547951638698578
+      },
+      {
+        "layer": "vision_model.encoder.layers.2.self_attn.out_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0001578658411744982,
+        "projection_idempotence_error": 4.202127456665039e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.2.self_attn.out_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0001352396939182654,
+        "delta_in_subspace_ratio": 0.14252351224422455
+      },
+      {
+        "layer": "vision_model.encoder.layers.2.self_attn.out_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 7.633977656951174e-05,
+        "delta_in_subspace_ratio": 0.14252400398254395
+      },
+      {
+        "layer": "vision_model.encoder.layers.2.mlp.fc1.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00018571142572909594,
+        "projection_idempotence_error": 1.895427703857422e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.2.mlp.fc1.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00010516748443478718,
+        "delta_in_subspace_ratio": 0.1006137952208519
+      },
+      {
+        "layer": "vision_model.encoder.layers.2.mlp.fc1.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00013470344129018486,
+        "delta_in_subspace_ratio": 0.1006132960319519
+      },
+      {
+        "layer": "vision_model.encoder.layers.2.mlp.fc2.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00017673848196864128,
+        "projection_idempotence_error": 3.966689109802246e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.2.mlp.fc2.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00013797671999782324,
+        "delta_in_subspace_ratio": 0.16930712759494781
+      },
+      {
+        "layer": "vision_model.encoder.layers.2.mlp.fc2.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00018330365128349513,
+        "delta_in_subspace_ratio": 0.16930682957172394
+      },
+      {
+        "layer": "vision_model.encoder.layers.3.self_attn.k_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00019854199490509927,
+        "projection_idempotence_error": 6.249547004699707e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.3.self_attn.k_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0002132570225512609,
+        "delta_in_subspace_ratio": 0.17526604235172272
+      },
+      {
+        "layer": "vision_model.encoder.layers.3.self_attn.k_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00022139128122944385,
+        "delta_in_subspace_ratio": 0.1752663552761078
+      },
+      {
+        "layer": "vision_model.encoder.layers.3.self_attn.v_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00019273735233582556,
+        "projection_idempotence_error": 6.639957427978516e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.3.self_attn.v_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00011750291014323011,
+        "delta_in_subspace_ratio": 0.15044550597667694
+      },
+      {
+        "layer": "vision_model.encoder.layers.3.self_attn.v_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00019010678806807846,
+        "delta_in_subspace_ratio": 0.15044526755809784
+      },
+      {
+        "layer": "vision_model.encoder.layers.3.self_attn.q_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0001941990340128541,
+        "projection_idempotence_error": 6.124377250671387e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.3.self_attn.q_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00019292213255539536,
+        "delta_in_subspace_ratio": 0.17332769930362701
+      },
+      {
+        "layer": "vision_model.encoder.layers.3.self_attn.q_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00020706388750113547,
+        "delta_in_subspace_ratio": 0.17332756519317627
+      },
+      {
+        "layer": "vision_model.encoder.layers.3.self_attn.out_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0001779899321263656,
+        "projection_idempotence_error": 4.2378902435302734e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.3.self_attn.out_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00014125001325737685,
+        "delta_in_subspace_ratio": 0.13787761330604553
+      },
+      {
+        "layer": "vision_model.encoder.layers.3.self_attn.out_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 6.99671363690868e-05,
+        "delta_in_subspace_ratio": 0.13787823915481567
+      },
+      {
+        "layer": "vision_model.encoder.layers.3.mlp.fc1.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00016475013399031013,
+        "projection_idempotence_error": 1.8358230590820312e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.3.mlp.fc1.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 8.39547865325585e-05,
+        "delta_in_subspace_ratio": 0.09964233636856079
+      },
+      {
+        "layer": "vision_model.encoder.layers.3.mlp.fc1.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0001503834646428004,
+        "delta_in_subspace_ratio": 0.09964223206043243
+      },
+      {
+        "layer": "vision_model.encoder.layers.3.mlp.fc2.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00018638986512087286,
+        "projection_idempotence_error": 4.9233436584472656e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.3.mlp.fc2.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00014314883446786553,
+        "delta_in_subspace_ratio": 0.16805313527584076
+      },
+      {
+        "layer": "vision_model.encoder.layers.3.mlp.fc2.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00019647541921585798,
+        "delta_in_subspace_ratio": 0.16805262863636017
+      },
+      {
+        "layer": "vision_model.encoder.layers.4.self_attn.k_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00018748462025541812,
+        "projection_idempotence_error": 6.258487701416016e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.4.self_attn.k_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00019863294437527657,
+        "delta_in_subspace_ratio": 0.17241117358207703
+      },
+      {
+        "layer": "vision_model.encoder.layers.4.self_attn.k_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00015010432980488986,
+        "delta_in_subspace_ratio": 0.1724110096693039
+      },
+      {
+        "layer": "vision_model.encoder.layers.4.self_attn.v_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00017235969426110387,
+        "projection_idempotence_error": 5.513429641723633e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.4.self_attn.v_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 8.76538542797789e-05,
+        "delta_in_subspace_ratio": 0.1595882773399353
+      },
+      {
+        "layer": "vision_model.encoder.layers.4.self_attn.v_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0001553730689920485,
+        "delta_in_subspace_ratio": 0.15958836674690247
+      },
+      {
+        "layer": "vision_model.encoder.layers.4.self_attn.q_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00018208981782663614,
+        "projection_idempotence_error": 4.723668098449707e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.4.self_attn.q_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00014316126180347055,
+        "delta_in_subspace_ratio": 0.1844673901796341
+      },
+      {
+        "layer": "vision_model.encoder.layers.4.self_attn.q_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00020184395543765277,
+        "delta_in_subspace_ratio": 0.18446746468544006
+      },
+      {
+        "layer": "vision_model.encoder.layers.4.self_attn.out_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00016942230286076665,
+        "projection_idempotence_error": 3.9458274841308594e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.4.self_attn.out_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00015952056855894625,
+        "delta_in_subspace_ratio": 0.1459445357322693
+      },
+      {
+        "layer": "vision_model.encoder.layers.4.self_attn.out_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 9.645892714615911e-05,
+        "delta_in_subspace_ratio": 0.14594541490077972
+      },
+      {
+        "layer": "vision_model.encoder.layers.4.mlp.fc1.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00015575015277136117,
+        "projection_idempotence_error": 2.076476812362671e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.4.mlp.fc1.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 7.117872883100063e-05,
+        "delta_in_subspace_ratio": 0.0991750955581665
+      },
+      {
+        "layer": "vision_model.encoder.layers.4.mlp.fc1.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00015711324522271752,
+        "delta_in_subspace_ratio": 0.09917505830526352
+      },
+      {
+        "layer": "vision_model.encoder.layers.4.mlp.fc2.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00018080996233038604,
+        "projection_idempotence_error": 5.269050598144531e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.4.mlp.fc2.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00014604214811697602,
+        "delta_in_subspace_ratio": 0.16920340061187744
+      },
+      {
+        "layer": "vision_model.encoder.layers.4.mlp.fc2.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00018142398039344698,
+        "delta_in_subspace_ratio": 0.16920296847820282
+      },
+      {
+        "layer": "vision_model.encoder.layers.5.self_attn.k_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00017143013246823102,
+        "projection_idempotence_error": 7.018446922302246e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.5.self_attn.k_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0001560948003316298,
+        "delta_in_subspace_ratio": 0.18110889196395874
+      },
+      {
+        "layer": "vision_model.encoder.layers.5.self_attn.k_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00010198083327850327,
+        "delta_in_subspace_ratio": 0.18110890686511993
+      },
+      {
+        "layer": "vision_model.encoder.layers.5.self_attn.v_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00018156303849536926,
+        "projection_idempotence_error": 6.112456321716309e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.5.self_attn.v_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00011977589019807056,
+        "delta_in_subspace_ratio": 0.15167242288589478
+      },
+      {
+        "layer": "vision_model.encoder.layers.5.self_attn.v_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0001414094731444493,
+        "delta_in_subspace_ratio": 0.15167202055454254
+      },
+      {
+        "layer": "vision_model.encoder.layers.5.self_attn.q_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00016962082008831203,
+        "projection_idempotence_error": 5.6684017181396484e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.5.self_attn.q_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0001430417032679543,
+        "delta_in_subspace_ratio": 0.1889510452747345
+      },
+      {
+        "layer": "vision_model.encoder.layers.5.self_attn.q_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00011547849862836301,
+        "delta_in_subspace_ratio": 0.18895065784454346
+      },
+      {
+        "layer": "vision_model.encoder.layers.5.self_attn.out_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.000182085539563559,
+        "projection_idempotence_error": 6.583333015441895e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.5.self_attn.out_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00017941993428394198,
+        "delta_in_subspace_ratio": 0.13780787587165833
+      },
+      {
+        "layer": "vision_model.encoder.layers.5.self_attn.out_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 8.009104203665629e-05,
+        "delta_in_subspace_ratio": 0.13780656456947327
+      },
+      {
+        "layer": "vision_model.encoder.layers.5.mlp.fc1.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0001453056320315227,
+        "projection_idempotence_error": 2.387911081314087e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.5.mlp.fc1.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 7.655484660062939e-05,
+        "delta_in_subspace_ratio": 0.09923399984836578
+      },
+      {
+        "layer": "vision_model.encoder.layers.5.mlp.fc1.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.000143040728289634,
+        "delta_in_subspace_ratio": 0.09923411160707474
+      },
+      {
+        "layer": "vision_model.encoder.layers.5.mlp.fc2.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0001930443395394832,
+        "projection_idempotence_error": 5.501508712768555e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.5.mlp.fc2.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00020449591102078557,
+        "delta_in_subspace_ratio": 0.16557493805885315
+      },
+      {
+        "layer": "vision_model.encoder.layers.5.mlp.fc2.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00013647363812197,
+        "delta_in_subspace_ratio": 0.16557632386684418
+      },
+      {
+        "layer": "vision_model.encoder.layers.6.self_attn.k_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00016009043611120433,
+        "projection_idempotence_error": 7.113814353942871e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.6.self_attn.k_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0001439735060557723,
+        "delta_in_subspace_ratio": 0.18242758512496948
+      },
+      {
+        "layer": "vision_model.encoder.layers.6.self_attn.k_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0001083816314348951,
+        "delta_in_subspace_ratio": 0.18242748081684113
+      },
+      {
+        "layer": "vision_model.encoder.layers.6.self_attn.v_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00017849834694061428,
+        "projection_idempotence_error": 5.27501106262207e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.6.self_attn.v_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00016765366308391094,
+        "delta_in_subspace_ratio": 0.1424558460712433
+      },
+      {
+        "layer": "vision_model.encoder.layers.6.self_attn.v_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0001793708506738767,
+        "delta_in_subspace_ratio": 0.14245463907718658
+      },
+      {
+        "layer": "vision_model.encoder.layers.6.self_attn.q_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00015015607641544193,
+        "projection_idempotence_error": 4.652142524719238e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.6.self_attn.q_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00011263925262028351,
+        "delta_in_subspace_ratio": 0.19273528456687927
+      },
+      {
+        "layer": "vision_model.encoder.layers.6.self_attn.q_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00011994656233582646,
+        "delta_in_subspace_ratio": 0.1927352398633957
+      },
+      {
+        "layer": "vision_model.encoder.layers.6.self_attn.out_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.000183940923307091,
+        "projection_idempotence_error": 5.969405174255371e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.6.self_attn.out_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00017475041386205703,
+        "delta_in_subspace_ratio": 0.13194404542446136
+      },
+      {
+        "layer": "vision_model.encoder.layers.6.self_attn.out_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 8.731154957786202e-05,
+        "delta_in_subspace_ratio": 0.13194458186626434
+      },
+      {
+        "layer": "vision_model.encoder.layers.6.mlp.fc1.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00014873662439640611,
+        "projection_idempotence_error": 2.7567148208618164e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.6.mlp.fc1.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 6.227144331205636e-05,
+        "delta_in_subspace_ratio": 0.11027677357196808
+      },
+      {
+        "layer": "vision_model.encoder.layers.6.mlp.fc1.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00012884836178272963,
+        "delta_in_subspace_ratio": 0.11027690768241882
+      },
+      {
+        "layer": "vision_model.encoder.layers.6.mlp.fc2.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00020412915910128504,
+        "projection_idempotence_error": 5.453824996948242e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.6.mlp.fc2.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00014886648568790406,
+        "delta_in_subspace_ratio": 0.16229669749736786
+      },
+      {
+        "layer": "vision_model.encoder.layers.6.mlp.fc2.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00022161650122143328,
+        "delta_in_subspace_ratio": 0.16229727864265442
+      },
+      {
+        "layer": "vision_model.encoder.layers.7.self_attn.k_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0001768698712112382,
+        "projection_idempotence_error": 7.236003875732422e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.7.self_attn.k_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0001537197531433776,
+        "delta_in_subspace_ratio": 0.1846744865179062
+      },
+      {
+        "layer": "vision_model.encoder.layers.7.self_attn.k_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00020500110986176878,
+        "delta_in_subspace_ratio": 0.18467403948307037
+      },
+      {
+        "layer": "vision_model.encoder.layers.7.self_attn.v_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0001900244242278859,
+        "projection_idempotence_error": 5.245208740234375e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.7.self_attn.v_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00011581190483411774,
+        "delta_in_subspace_ratio": 0.1553913801908493
+      },
+      {
+        "layer": "vision_model.encoder.layers.7.self_attn.v_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00015485782932955772,
+        "delta_in_subspace_ratio": 0.15539099276065826
+      },
+      {
+        "layer": "vision_model.encoder.layers.7.self_attn.q_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00016167595458682626,
+        "projection_idempotence_error": 6.344914436340332e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.7.self_attn.q_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0001339082809863612,
+        "delta_in_subspace_ratio": 0.19544287025928497
+      },
+      {
+        "layer": "vision_model.encoder.layers.7.self_attn.q_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00011336844909237698,
+        "delta_in_subspace_ratio": 0.19544191658496857
+      },
+      {
+        "layer": "vision_model.encoder.layers.7.self_attn.out_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0002006640424951911,
+        "projection_idempotence_error": 7.390975952148438e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.7.self_attn.out_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00021809956524521112,
+        "delta_in_subspace_ratio": 0.1346796303987503
+      },
+      {
+        "layer": "vision_model.encoder.layers.7.self_attn.out_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00021970036323182285,
+        "delta_in_subspace_ratio": 0.1346808522939682
+      },
+      {
+        "layer": "vision_model.encoder.layers.7.mlp.fc1.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00014606426702812314,
+        "projection_idempotence_error": 2.9087066650390625e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.7.mlp.fc1.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 5.759079795097932e-05,
+        "delta_in_subspace_ratio": 0.1122678592801094
+      },
+      {
+        "layer": "vision_model.encoder.layers.7.mlp.fc1.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 7.103146344888955e-05,
+        "delta_in_subspace_ratio": 0.11226782947778702
+      },
+      {
+        "layer": "vision_model.encoder.layers.7.mlp.fc2.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0002004691632464528,
+        "projection_idempotence_error": 5.9157609939575195e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.7.mlp.fc2.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0002032615157077089,
+        "delta_in_subspace_ratio": 0.16993819177150726
+      },
+      {
+        "layer": "vision_model.encoder.layers.7.mlp.fc2.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00023335040896199644,
+        "delta_in_subspace_ratio": 0.16993944346904755
+      },
+      {
+        "layer": "vision_model.encoder.layers.8.self_attn.k_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00020165696332696825,
+        "projection_idempotence_error": 7.218122482299805e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.8.self_attn.k_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00018549837113823742,
+        "delta_in_subspace_ratio": 0.18453195691108704
+      },
+      {
+        "layer": "vision_model.encoder.layers.8.self_attn.k_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00014386328984983265,
+        "delta_in_subspace_ratio": 0.18453173339366913
+      },
+      {
+        "layer": "vision_model.encoder.layers.8.self_attn.v_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0001868742983788252,
+        "projection_idempotence_error": 5.4448843002319336e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.8.self_attn.v_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00011975126835750416,
+        "delta_in_subspace_ratio": 0.16072046756744385
+      },
+      {
+        "layer": "vision_model.encoder.layers.8.self_attn.v_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 8.021741086849943e-05,
+        "delta_in_subspace_ratio": 0.16072092950344086
+      },
+      {
+        "layer": "vision_model.encoder.layers.8.self_attn.q_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00017414754256606102,
+        "projection_idempotence_error": 6.091594696044922e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.8.self_attn.q_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00011535480007296428,
+        "delta_in_subspace_ratio": 0.21844637393951416
+      },
+      {
+        "layer": "vision_model.encoder.layers.8.self_attn.q_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00019370752852410078,
+        "delta_in_subspace_ratio": 0.21844595670700073
+      },
+      {
+        "layer": "vision_model.encoder.layers.8.self_attn.out_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.000210985861485824,
+        "projection_idempotence_error": 6.157159805297852e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.8.self_attn.out_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0001089414581656456,
+        "delta_in_subspace_ratio": 0.14818131923675537
+      },
+      {
+        "layer": "vision_model.encoder.layers.8.self_attn.out_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00018173866556026042,
+        "delta_in_subspace_ratio": 0.14818134903907776
+      },
+      {
+        "layer": "vision_model.encoder.layers.8.mlp.fc1.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0001252783986274153,
+        "projection_idempotence_error": 3.2320618629455566e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.8.mlp.fc1.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 4.5845310523873195e-05,
+        "delta_in_subspace_ratio": 0.12674376368522644
+      },
+      {
+        "layer": "vision_model.encoder.layers.8.mlp.fc1.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 5.598308416665532e-05,
+        "delta_in_subspace_ratio": 0.12674374878406525
+      },
+      {
+        "layer": "vision_model.encoder.layers.8.mlp.fc2.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0001968124124687165,
+        "projection_idempotence_error": 5.811452865600586e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.8.mlp.fc2.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00017520917754154652,
+        "delta_in_subspace_ratio": 0.1752910166978836
+      },
+      {
+        "layer": "vision_model.encoder.layers.8.mlp.fc2.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0002238990127807483,
+        "delta_in_subspace_ratio": 0.17529098689556122
+      },
+      {
+        "layer": "vision_model.encoder.layers.9.self_attn.k_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00017786187527235597,
+        "projection_idempotence_error": 6.395578384399414e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.9.self_attn.k_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00011469225864857435,
+        "delta_in_subspace_ratio": 0.1839604526758194
+      },
+      {
+        "layer": "vision_model.encoder.layers.9.self_attn.k_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00018246057152282447,
+        "delta_in_subspace_ratio": 0.18396057188510895
+      },
+      {
+        "layer": "vision_model.encoder.layers.9.self_attn.v_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00018192120478488505,
+        "projection_idempotence_error": 5.415081977844238e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.9.self_attn.v_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00010424113861517981,
+        "delta_in_subspace_ratio": 0.15381859242916107
+      },
+      {
+        "layer": "vision_model.encoder.layers.9.self_attn.v_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00012101235915906727,
+        "delta_in_subspace_ratio": 0.15381887555122375
+      },
+      {
+        "layer": "vision_model.encoder.layers.9.self_attn.q_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00017597764963284135,
+        "projection_idempotence_error": 6.303191184997559e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.9.self_attn.q_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00013786391355097294,
+        "delta_in_subspace_ratio": 0.19074733555316925
+      },
+      {
+        "layer": "vision_model.encoder.layers.9.self_attn.q_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00018895551329478621,
+        "delta_in_subspace_ratio": 0.19074665009975433
+      },
+      {
+        "layer": "vision_model.encoder.layers.9.self_attn.out_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00018847225874196738,
+        "projection_idempotence_error": 5.793571472167969e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.9.self_attn.out_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00013007673260290176,
+        "delta_in_subspace_ratio": 0.14742864668369293
+      },
+      {
+        "layer": "vision_model.encoder.layers.9.self_attn.out_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00019934918964281678,
+        "delta_in_subspace_ratio": 0.14742916822433472
+      },
+      {
+        "layer": "vision_model.encoder.layers.9.mlp.fc1.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00011731246195267886,
+        "projection_idempotence_error": 3.670156002044678e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.9.mlp.fc1.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 5.018509546061978e-05,
+        "delta_in_subspace_ratio": 0.18278203904628754
+      },
+      {
+        "layer": "vision_model.encoder.layers.9.mlp.fc1.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 7.410191028611735e-05,
+        "delta_in_subspace_ratio": 0.18278221786022186
+      },
+      {
+        "layer": "vision_model.encoder.layers.9.mlp.fc2.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00019214033090975136,
+        "projection_idempotence_error": 6.881356239318848e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.9.mlp.fc2.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00017106070299632847,
+        "delta_in_subspace_ratio": 0.17459924519062042
+      },
+      {
+        "layer": "vision_model.encoder.layers.9.mlp.fc2.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00021088443463668227,
+        "delta_in_subspace_ratio": 0.17459909617900848
+      },
+      {
+        "layer": "vision_model.encoder.layers.10.self_attn.k_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00019853019330184907,
+        "projection_idempotence_error": 6.470084190368652e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.10.self_attn.k_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0001264616585103795,
+        "delta_in_subspace_ratio": 0.17890653014183044
+      },
+      {
+        "layer": "vision_model.encoder.layers.10.self_attn.k_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00013220934488344938,
+        "delta_in_subspace_ratio": 0.17890630662441254
+      },
+      {
+        "layer": "vision_model.encoder.layers.10.self_attn.v_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00018796016229316592,
+        "projection_idempotence_error": 4.6640634536743164e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.10.self_attn.v_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00011059871030738577,
+        "delta_in_subspace_ratio": 0.15998972952365875
+      },
+      {
+        "layer": "vision_model.encoder.layers.10.self_attn.v_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00020905095152556896,
+        "delta_in_subspace_ratio": 0.1599893569946289
+      },
+      {
+        "layer": "vision_model.encoder.layers.10.self_attn.q_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00019304720626678318,
+        "projection_idempotence_error": 7.605552673339844e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.10.self_attn.q_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0001543513935757801,
+        "delta_in_subspace_ratio": 0.18034715950489044
+      },
+      {
+        "layer": "vision_model.encoder.layers.10.self_attn.q_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00020453745673876256,
+        "delta_in_subspace_ratio": 0.18034768104553223
+      },
+      {
+        "layer": "vision_model.encoder.layers.10.self_attn.out_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0002078729885397479,
+        "projection_idempotence_error": 6.195902824401855e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.10.self_attn.out_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00014064351853448898,
+        "delta_in_subspace_ratio": 0.15832507610321045
+      },
+      {
+        "layer": "vision_model.encoder.layers.10.self_attn.out_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00017521703557576984,
+        "delta_in_subspace_ratio": 0.15832549333572388
+      },
+      {
+        "layer": "vision_model.encoder.layers.10.mlp.fc1.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00014268855738919228,
+        "projection_idempotence_error": 3.178417682647705e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.10.mlp.fc1.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 4.862014247919433e-05,
+        "delta_in_subspace_ratio": 0.1674325168132782
+      },
+      {
+        "layer": "vision_model.encoder.layers.10.mlp.fc1.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 4.0502185584045947e-05,
+        "delta_in_subspace_ratio": 0.1674322932958603
+      },
+      {
+        "layer": "vision_model.encoder.layers.10.mlp.fc2.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00024454575031995773,
+        "projection_idempotence_error": 6.41942024230957e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.10.mlp.fc2.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00019530353893060237,
+        "delta_in_subspace_ratio": 0.17715148627758026
+      },
+      {
+        "layer": "vision_model.encoder.layers.10.mlp.fc2.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0003366927267052233,
+        "delta_in_subspace_ratio": 0.17715099453926086
+      },
+      {
+        "layer": "vision_model.encoder.layers.11.self_attn.k_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00017517661035526544,
+        "projection_idempotence_error": 9.137392044067383e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.11.self_attn.k_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00015561419422738254,
+        "delta_in_subspace_ratio": 0.18367740511894226
+      },
+      {
+        "layer": "vision_model.encoder.layers.11.self_attn.k_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00010057477629743516,
+        "delta_in_subspace_ratio": 0.1836775690317154
+      },
+      {
+        "layer": "vision_model.encoder.layers.11.self_attn.v_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00023820577189326286,
+        "projection_idempotence_error": 8.058547973632812e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.11.self_attn.v_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0001242742728209123,
+        "delta_in_subspace_ratio": 0.19407857954502106
+      },
+      {
+        "layer": "vision_model.encoder.layers.11.self_attn.v_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00031129602575674653,
+        "delta_in_subspace_ratio": 0.19407816231250763
+      },
+      {
+        "layer": "vision_model.encoder.layers.11.self_attn.q_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0001708996860543266,
+        "projection_idempotence_error": 8.362531661987305e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.11.self_attn.q_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 9.756755025591701e-05,
+        "delta_in_subspace_ratio": 0.2109387069940567
+      },
+      {
+        "layer": "vision_model.encoder.layers.11.self_attn.q_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 9.988207602873445e-05,
+        "delta_in_subspace_ratio": 0.21093879640102386
+      },
+      {
+        "layer": "vision_model.encoder.layers.11.self_attn.out_proj.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00026446295669302344,
+        "projection_idempotence_error": 8.678436279296875e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.11.self_attn.out_proj.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00025817996356636286,
+        "delta_in_subspace_ratio": 0.18683627247810364
+      },
+      {
+        "layer": "vision_model.encoder.layers.11.self_attn.out_proj.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00036819095839746296,
+        "delta_in_subspace_ratio": 0.18683791160583496
+      },
+      {
+        "layer": "vision_model.encoder.layers.11.mlp.fc1.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.00022008971427567303,
+        "projection_idempotence_error": 7.006525993347168e-05,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.11.mlp.fc1.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 8.542861178284511e-05,
+        "delta_in_subspace_ratio": 0.21676571667194366
+      },
+      {
+        "layer": "vision_model.encoder.layers.11.mlp.fc1.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 7.680122507736087e-05,
+        "delta_in_subspace_ratio": 0.2168741673231125
+      },
+      {
+        "layer": "vision_model.encoder.layers.11.mlp.fc2.weight",
+        "iteration": 1,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0002461569965817034,
+        "projection_idempotence_error": 0.00010472536087036133,
+        "projection_rank": 128
+      },
+      {
+        "layer": "vision_model.encoder.layers.11.mlp.fc2.weight",
+        "iteration": 200,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0002960014680866152,
+        "delta_in_subspace_ratio": 0.25346142053604126
+      },
+      {
+        "layer": "vision_model.encoder.layers.11.mlp.fc2.weight",
+        "iteration": 400,
+        "grad_finite": true,
+        "delta_finite": true,
+        "projected_grad_in_subspace_ratio": 0.0003000963479280472,
+        "delta_in_subspace_ratio": 0.2535330653190613
+      }
+    ]
+  },
+  "probe_note": "objective recorded every iteration; projection checked at iterations 1, 200, 400",
+  "peak_memory_note": "GPU peak during method.run only; Task Arithmetic and TIES merge on CPU",
+  "test_data_first_loaded_at": "2026-10-18T22:08:52.808275+00:00",
+  "per_task": {
+    "mnist": {
+      "accuracy": 98.68999719619751,
+      "loss": 0.05909380689263344,
+      "num_examples": 10000
+    },
+    "svhn": {
+      "accuracy": 91.51045083999634,
+      "loss": 0.29576006531715393,
+      "num_examples": 26032
+    },
+    "gtsrb": {
+      "accuracy": 91.34600162506104,
+      "loss": 0.34901970624923706,
+      "num_examples": 12630
+    },
+    "eurosat": {
+      "accuracy": 92.22221970558167,
+      "loss": 0.24143609404563904,
+      "num_examples": 2700
+    }
+  },
+  "evaluation_time_seconds": 25.976712942123413,
+  "reload_check": {
+    "task": "mnist",
+    "num_images": 64,
+    "max_abs_embedding_diff": 0.0,
+    "weights_identical_after_reload": true,
+    "passed": true
+  },
+  "per_task_accuracy": {
+    "mnist": 98.68999719619751,
+    "svhn": 91.51045083999634,
+    "gtsrb": 91.34600162506104,
+    "eurosat": 92.22221970558167
+  },
+  "individual_expert_accuracy": {
+    "mnist": 99.58000183105469,
+    "svhn": 97.26874828338623,
+    "gtsrb": 98.9073634147644,
+    "eurosat": 99.0740716457367
+  },
+  "reference_records": {
+    "mnist": "results/raw/ref__expert-mnist__mnist-svhn-gtsrb-eurosat__20261018T215008Z.json",
+    "svhn": "results/raw/ref__expert-svhn__mnist-svhn-gtsrb-eurosat__20261018T215031Z.json",
+    "gtsrb": "results/raw/ref__expert-gtsrb__mnist-svhn-gtsrb-eurosat__20261018T215053Z.json",
+    "eurosat": "results/raw/ref__expert-eurosat__mnist-svhn-gtsrb-eurosat__20261018T215116Z.json"
+  },
+  "mean_accuracy": 93.44216734170914,
+  "worst_task": "gtsrb",
+  "worst_task_accuracy": 91.34600162506104,
+  "normalized_retention": {
+    "mnist": 99.10624159621212,
+    "svhn": 94.08001280471558,
+    "gtsrb": 92.35510731592846,
+    "eurosat": 93.08411189089362
+  },
+  "mean_normalized_retention": 94.65636840193744,
+  "interference_gap": {
+    "mnist": 0.8900046348571777,
+    "svhn": 5.758297443389893,
+    "gtsrb": 7.561361789703369,
+    "eurosat": 6.851851940155029
+  }
+}

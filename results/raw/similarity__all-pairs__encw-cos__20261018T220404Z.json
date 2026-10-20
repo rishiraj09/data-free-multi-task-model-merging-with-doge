@@ -1,0 +1,76 @@
+{
+  "run_id": "similarity__all-pairs__encw-cos",
+  "kind": "similarity",
+  "timestamp": "2026-10-18T22:04:03.645734+00:00",
+  "status": "complete",
+  "definition_id": "encw-cos",
+  "definition": {
+    "definition_id": "encw-cos",
+    "key_filter": {
+      "include_all": [
+        "encoder",
+        "weight"
+      ],
+      "exclude_any": [
+        "layer_norm"
+      ]
+    },
+    "key_order": "sorted",
+    "dtype": "float64",
+    "formula": "dot(a, b) / (norm(a) * norm(b))"
+  },
+  "num_matrices": 72,
+  "num_values": 84934656,
+  "checkpoints": {
+    "_pretrained_": {
+      "repo_id": "openai/clip-vit-base-patch32",
+      "revision": "3d74acf9a28c67741b2f4f2ea7635f0aaf6f0268"
+    },
+    "mnist": {
+      "repo_id": "tanganke/clip-vit-base-patch32_mnist",
+      "revision": "28dca299b68f294bb368533172496dbde3901f3e"
+    },
+    "svhn": {
+      "repo_id": "tanganke/clip-vit-base-patch32_svhn",
+      "revision": "7da249d42c97bb5117832d37d6e54acc50dec7e0"
+    },
+    "gtsrb": {
+      "repo_id": "tanganke/clip-vit-base-patch32_gtsrb",
+      "revision": "7b11ced426cc9cd0430650be19d75748f3bd64d0"
+    },
+    "eurosat": {
+      "repo_id": "tanganke/clip-vit-base-patch32_eurosat",
+      "revision": "7c114f53697b7acca1147a0d1e8b7c769979b57b"
+    }
+  },
+  "task_vector_l2_norm": {
+    "mnist": 2.2873561045353905,
+    "svhn": 2.6841767426092233,
+    "gtsrb": 2.483705577103719,
+    "eurosat": 2.1469256734272286
+  },
+  "cosine_similarity": {
+    "mnist-svhn": 0.15422140785592645,
+    "mnist-gtsrb": 0.051368555809328226,
+    "mnist-eurosat": 0.012655640123464196,
+    "svhn-gtsrb": 0.06452042258421586,
+    "svhn-eurosat": 0.024475603637266828,
+    "gtsrb-eurosat": 0.02566892725470132
+  },
+  "elapsed_seconds": 3.7,
+  "provenance": {
+    "config_files": {
+      "configs/canonical_methods.yaml": "5936debf78c0c65b06d798b45c504f7d3a89620bbdf736922a5b2cb769413f31",
+      "configs/experiments.yaml": "f37d841124b27de500f8588ee86e3c7fc78b3e47e89be4285dd405e111d53260",
+      "configs/pins.yaml": "9a3bfab1d75f13811826a6b4e1900799a75cb00995ca6ffe39473bbfd033a148"
+    },
+    "code_files": {
+      "src/doge_exam/runner.py": "097033831fdbf5f1e46c10acbd7c45906ab8afc2f944dca55ec7858be1dadd58",
+      "src/doge_exam/metrics.py": "7add6fc56994099ab4ff9c7082634cab4b2fda2142c391bb8481f90a2eb72be0",
+      "src/doge_exam/probes.py": "a30e193183826f0f4e86c1f835f6215cdc1c54045ef7497f40f4d3f33e47b8a9",
+      "scripts/run_experiment.py": "170a023c8d6235d2900e79810e35ddbd0bd2b21885f97edb7477e73b33ecb7ca"
+    },
+    "git_commit": null,
+    "similarity_code_sha256": "9c244975b2f14299732d810d0974a365fef8e18265b32983049f78312d0ea93c"
+  }
+}

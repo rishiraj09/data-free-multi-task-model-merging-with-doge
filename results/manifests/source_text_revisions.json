@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "description": "Exact file-hash pairs for comments, docstrings and diagnostic wording revised after the measured runs. Configuration values and executable logic are unchanged. Original hashes in result records are preserved.",
+  "revisions": [
+    {
+      "path": "configs/canonical_methods.yaml",
+      "original_sha256": "5936debf78c0c65b06d798b45c504f7d3a89620bbdf736922a5b2cb769413f31",
+      "current_sha256": "f5dd9b950544b5fe04bedff3d7fddb966e01d4b3adb142e5817b7c07aba34965",
+      "change_type": "comments"
+    },
+    {
+      "path": "configs/experiments.yaml",
+      "original_sha256": "f37d841124b27de500f8588ee86e3c7fc78b3e47e89be4285dd405e111d53260",
+      "current_sha256": "3642f2058e05f7a751ce3d98ab4aa971e0aea27f3f2eb326a3e29f09cfbb4054",
+      "change_type": "comments"
+    },
+    {
+      "path": "configs/pins.yaml",
+      "original_sha256": "9a3bfab1d75f13811826a6b4e1900799a75cb00995ca6ffe39473bbfd033a148",
+      "current_sha256": "1d9859ee196c602308c17589c7ceb152cb6821c720ce9e8f5db42055552eb70c",
+      "change_type": "comments"
+    },
+    {
+      "path": "src/doge_exam/runner.py",
+      "original_sha256": "097033831fdbf5f1e46c10acbd7c45906ab8afc2f944dca55ec7858be1dadd58",
+      "current_sha256": "a8767933f60066dbaa8e69bdc2839b3676a434a9164149032c4b169555390f9e",
+      "change_type": "comments_docstrings_and_diagnostic_text"
+    },
+    {
+      "path": "src/doge_exam/metrics.py",
+      "original_sha256": "7add6fc56994099ab4ff9c7082634cab4b2fda2142c391bb8481f90a2eb72be0",
+      "current_sha256": "d7cd807b0c175770f2108111e07d95572e04a00b75b3f23d10f34e9647181e24",
+      "change_type": "docstrings"
+    }
+  ]
+}

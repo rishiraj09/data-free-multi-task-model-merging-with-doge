@@ -1,0 +1,5 @@
+# Extra pins to build and execute the exam notebook (scripts/build_notebook.py).
+# Install into the project venv: uv pip install -r requirements-notebook.txt
+nbformat==5.10.4
+nbclient==0.10.2
+ipykernel==6.29.5

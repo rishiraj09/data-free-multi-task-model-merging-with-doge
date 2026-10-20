@@ -1,0 +1,611 @@
+{
+  "kind": "inventory",
+  "timestamp": "2026-10-18T21:33:30.237385+00:00",
+  "config_id": "canonical-v1",
+  "environment": {
+    "timestamp": "2026-10-18T21:33:30.237406+00:00",
+    "hostname": "6196831b036a",
+    "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.39",
+    "machine": "x86_64",
+    "processor": "x86_64",
+    "python_version": "3.10.18",
+    "python_executable": "/workspace/venv-py310/bin/python",
+    "packages": {
+      "torch": "2.5.1",
+      "torchvision": "0.20.1",
+      "transformers": "4.48.3",
+      "datasets": "3.2.0",
+      "huggingface_hub": "0.28.1",
+      "lightning": "2.5.0.post0",
+      "hydra-core": "1.3.2",
+      "peft": "0.14.0",
+      "numpy": "1.26.4",
+      "scipy": "1.14.1",
+      "fusion_bench": "0.2.11"
+    },
+    "project_git_commit": null,
+    "doge_repo_commit": "ca0a0a10c45bc0965f52f0815d6a6581ee103f85",
+    "device": {
+      "selected_device": "cuda",
+      "canonical": true,
+      "cuda_available": true,
+      "mps_available": false,
+      "cuda_version": "12.4",
+      "cudnn_version": 90100,
+      "gpus": [
+        {
+          "name": "NVIDIA GeForce RTX 4090",
+          "total_memory_mb": 24082
+        }
+      ]
+    }
+  },
+  "checks": {
+    "CKPT-01": true,
+    "CKPT-02": true,
+    "CKPT-03": true,
+    "CKPT-04": true,
+    "CKPT-05": true,
+    "DATASETS": true
+  },
+  "all_passed": true,
+  "pretrained": {
+    "repo_id": "openai/clip-vit-base-patch32",
+    "source": "https://huggingface.co/openai/clip-vit-base-patch32",
+    "revision": "3d74acf9a28c67741b2f4f2ea7635f0aaf6f0268",
+    "license": null,
+    "weights": {
+      "file": "pytorch_model.bin",
+      "size_bytes": 605247071,
+      "sha256": "a63082132ba4f97a80bea76823f544493bffa8082296d62d71581a4feff1576f",
+      "hub_lfs_sha256": "a63082132ba4f97a80bea76823f544493bffa8082296d62d71581a4feff1576f",
+      "sha256_matches_hub": true
+    },
+    "num_parameters": 87456000,
+    "loading": {
+      "missing_keys": [],
+      "unexpected_keys": [
+        "logit_scale",
+        "text_model.embeddings.position_embedding.weight",
+        "text_model.embeddings.position_ids",
+        "text_model.embeddings.token_embedding.weight",
+        "text_model.encoder.layers.0.layer_norm1.bias",
+        "text_model.encoder.layers.0.layer_norm1.weight",
+        "text_model.encoder.layers.0.layer_norm2.bias",
+        "text_model.encoder.layers.0.layer_norm2.weight",
+        "text_model.encoder.layers.0.mlp.fc1.bias",
+        "text_model.encoder.layers.0.mlp.fc1.weight",
+        "text_model.encoder.layers.0.mlp.fc2.bias",
+        "text_model.encoder.layers.0.mlp.fc2.weight",
+        "text_model.encoder.layers.0.self_attn.k_proj.bias",
+        "text_model.encoder.layers.0.self_attn.k_proj.weight",
+        "text_model.encoder.layers.0.self_attn.out_proj.bias",
+        "text_model.encoder.layers.0.self_attn.out_proj.weight",
+        "text_model.encoder.layers.0.self_attn.q_proj.bias",
+        "text_model.encoder.layers.0.self_attn.q_proj.weight",
+        "text_model.encoder.layers.0.self_attn.v_proj.bias",
+        "text_model.encoder.layers.0.self_attn.v_proj.weight",
+        "text_model.encoder.layers.1.layer_norm1.bias",
+        "text_model.encoder.layers.1.layer_norm1.weight",
+        "text_model.encoder.layers.1.layer_norm2.bias",
+        "text_model.encoder.layers.1.layer_norm2.weight",
+        "text_model.encoder.layers.1.mlp.fc1.bias",
+        "text_model.encoder.layers.1.mlp.fc1.weight",
+        "text_model.encoder.layers.1.mlp.fc2.bias",
+        "text_model.encoder.layers.1.mlp.fc2.weight",
+        "text_model.encoder.layers.1.self_attn.k_proj.bias",
+        "text_model.encoder.layers.1.self_attn.k_proj.weight",
+        "text_model.encoder.layers.1.self_attn.out_proj.bias",
+        "text_model.encoder.layers.1.self_attn.out_proj.weight",
+        "text_model.encoder.layers.1.self_attn.q_proj.bias",
+        "text_model.encoder.layers.1.self_attn.q_proj.weight",
+        "text_model.encoder.layers.1.self_attn.v_proj.bias",
+        "text_model.encoder.layers.1.self_attn.v_proj.weight",
+        "text_model.encoder.layers.10.layer_norm1.bias",
+        "text_model.encoder.layers.10.layer_norm1.weight",
+        "text_model.encoder.layers.10.layer_norm2.bias",
+        "text_model.encoder.layers.10.layer_norm2.weight",
+        "text_model.encoder.layers.10.mlp.fc1.bias",
+        "text_model.encoder.layers.10.mlp.fc1.weight",
+        "text_model.encoder.layers.10.mlp.fc2.bias",
+        "text_model.encoder.layers.10.mlp.fc2.weight",
+        "text_model.encoder.layers.10.self_attn.k_proj.bias",
+        "text_model.encoder.layers.10.self_attn.k_proj.weight",
+        "text_model.encoder.layers.10.self_attn.out_proj.bias",
+        "text_model.encoder.layers.10.self_attn.out_proj.weight",
+        "text_model.encoder.layers.10.self_attn.q_proj.bias",
+        "text_model.encoder.layers.10.self_attn.q_proj.weight",
+        "text_model.encoder.layers.10.self_attn.v_proj.bias",
+        "text_model.encoder.layers.10.self_attn.v_proj.weight",
+        "text_model.encoder.layers.11.layer_norm1.bias",
+        "text_model.encoder.layers.11.layer_norm1.weight",
+        "text_model.encoder.layers.11.layer_norm2.bias",
+        "text_model.encoder.layers.11.layer_norm2.weight",
+        "text_model.encoder.layers.11.mlp.fc1.bias",
+        "text_model.encoder.layers.11.mlp.fc1.weight",
+        "text_model.encoder.layers.11.mlp.fc2.bias",
+        "text_model.encoder.layers.11.mlp.fc2.weight",
+        "text_model.encoder.layers.11.self_attn.k_proj.bias",
+        "text_model.encoder.layers.11.self_attn.k_proj.weight",
+        "text_model.encoder.layers.11.self_attn.out_proj.bias",
+        "text_model.encoder.layers.11.self_attn.out_proj.weight",
+        "text_model.encoder.layers.11.self_attn.q_proj.bias",
+        "text_model.encoder.layers.11.self_attn.q_proj.weight",
+        "text_model.encoder.layers.11.self_attn.v_proj.bias",
+        "text_model.encoder.layers.11.self_attn.v_proj.weight",
+        "text_model.encoder.layers.2.layer_norm1.bias",
+        "text_model.encoder.layers.2.layer_norm1.weight",
+        "text_model.encoder.layers.2.layer_norm2.bias",
+        "text_model.encoder.layers.2.layer_norm2.weight",
+        "text_model.encoder.layers.2.mlp.fc1.bias",
+        "text_model.encoder.layers.2.mlp.fc1.weight",
+        "text_model.encoder.layers.2.mlp.fc2.bias",
+        "text_model.encoder.layers.2.mlp.fc2.weight",
+        "text_model.encoder.layers.2.self_attn.k_proj.bias",
+        "text_model.encoder.layers.2.self_attn.k_proj.weight",
+        "text_model.encoder.layers.2.self_attn.out_proj.bias",
+        "text_model.encoder.layers.2.self_attn.out_proj.weight",
+        "text_model.encoder.layers.2.self_attn.q_proj.bias",
+        "text_model.encoder.layers.2.self_attn.q_proj.weight",
+        "text_model.encoder.layers.2.self_attn.v_proj.bias",
+        "text_model.encoder.layers.2.self_attn.v_proj.weight",
+        "text_model.encoder.layers.3.layer_norm1.bias",
+        "text_model.encoder.layers.3.layer_norm1.weight",
+        "text_model.encoder.layers.3.layer_norm2.bias",
+        "text_model.encoder.layers.3.layer_norm2.weight",
+        "text_model.encoder.layers.3.mlp.fc1.bias",
+        "text_model.encoder.layers.3.mlp.fc1.weight",
+        "text_model.encoder.layers.3.mlp.fc2.bias",
+        "text_model.encoder.layers.3.mlp.fc2.weight",
+        "text_model.encoder.layers.3.self_attn.k_proj.bias",
+        "text_model.encoder.layers.3.self_attn.k_proj.weight",
+        "text_model.encoder.layers.3.self_attn.out_proj.bias",
+        "text_model.encoder.layers.3.self_attn.out_proj.weight",
+        "text_model.encoder.layers.3.self_attn.q_proj.bias",
+        "text_model.encoder.layers.3.self_attn.q_proj.weight",
+        "text_model.encoder.layers.3.self_attn.v_proj.bias",
+        "text_model.encoder.layers.3.self_attn.v_proj.weight",
+        "text_model.encoder.layers.4.layer_norm1.bias",
+        "text_model.encoder.layers.4.layer_norm1.weight",
+        "text_model.encoder.layers.4.layer_norm2.bias",
+        "text_model.encoder.layers.4.layer_norm2.weight",
+        "text_model.encoder.layers.4.mlp.fc1.bias",
+        "text_model.encoder.layers.4.mlp.fc1.weight",
+        "text_model.encoder.layers.4.mlp.fc2.bias",
+        "text_model.encoder.layers.4.mlp.fc2.weight",
+        "text_model.encoder.layers.4.self_attn.k_proj.bias",
+        "text_model.encoder.layers.4.self_attn.k_proj.weight",
+        "text_model.encoder.layers.4.self_attn.out_proj.bias",
+        "text_model.encoder.layers.4.self_attn.out_proj.weight",
+        "text_model.encoder.layers.4.self_attn.q_proj.bias",
+        "text_model.encoder.layers.4.self_attn.q_proj.weight",
+        "text_model.encoder.layers.4.self_attn.v_proj.bias",
+        "text_model.encoder.layers.4.self_attn.v_proj.weight",
+        "text_model.encoder.layers.5.layer_norm1.bias",
+        "text_model.encoder.layers.5.layer_norm1.weight",
+        "text_model.encoder.layers.5.layer_norm2.bias",
+        "text_model.encoder.layers.5.layer_norm2.weight",
+        "text_model.encoder.layers.5.mlp.fc1.bias",
+        "text_model.encoder.layers.5.mlp.fc1.weight",
+        "text_model.encoder.layers.5.mlp.fc2.bias",
+        "text_model.encoder.layers.5.mlp.fc2.weight",
+        "text_model.encoder.layers.5.self_attn.k_proj.bias",
+        "text_model.encoder.layers.5.self_attn.k_proj.weight",
+        "text_model.encoder.layers.5.self_attn.out_proj.bias",
+        "text_model.encoder.layers.5.self_attn.out_proj.weight",
+        "text_model.encoder.layers.5.self_attn.q_proj.bias",
+        "text_model.encoder.layers.5.self_attn.q_proj.weight",
+        "text_model.encoder.layers.5.self_attn.v_proj.bias",
+        "text_model.encoder.layers.5.self_attn.v_proj.weight",
+        "text_model.encoder.layers.6.layer_norm1.bias",
+        "text_model.encoder.layers.6.layer_norm1.weight",
+        "text_model.encoder.layers.6.layer_norm2.bias",
+        "text_model.encoder.layers.6.layer_norm2.weight",
+        "text_model.encoder.layers.6.mlp.fc1.bias",
+        "text_model.encoder.layers.6.mlp.fc1.weight",
+        "text_model.encoder.layers.6.mlp.fc2.bias",
+        "text_model.encoder.layers.6.mlp.fc2.weight",
+        "text_model.encoder.layers.6.self_attn.k_proj.bias",
+        "text_model.encoder.layers.6.self_attn.k_proj.weight",
+        "text_model.encoder.layers.6.self_attn.out_proj.bias",
+        "text_model.encoder.layers.6.self_attn.out_proj.weight",
+        "text_model.encoder.layers.6.self_attn.q_proj.bias",
+        "text_model.encoder.layers.6.self_attn.q_proj.weight",
+        "text_model.encoder.layers.6.self_attn.v_proj.bias",
+        "text_model.encoder.layers.6.self_attn.v_proj.weight",
+        "text_model.encoder.layers.7.layer_norm1.bias",
+        "text_model.encoder.layers.7.layer_norm1.weight",
+        "text_model.encoder.layers.7.layer_norm2.bias",
+        "text_model.encoder.layers.7.layer_norm2.weight",
+        "text_model.encoder.layers.7.mlp.fc1.bias",
+        "text_model.encoder.layers.7.mlp.fc1.weight",
+        "text_model.encoder.layers.7.mlp.fc2.bias",
+        "text_model.encoder.layers.7.mlp.fc2.weight",
+        "text_model.encoder.layers.7.self_attn.k_proj.bias",
+        "text_model.encoder.layers.7.self_attn.k_proj.weight",
+        "text_model.encoder.layers.7.self_attn.out_proj.bias",
+        "text_model.encoder.layers.7.self_attn.out_proj.weight",
+        "text_model.encoder.layers.7.self_attn.q_proj.bias",
+        "text_model.encoder.layers.7.self_attn.q_proj.weight",
+        "text_model.encoder.layers.7.self_attn.v_proj.bias",
+        "text_model.encoder.layers.7.self_attn.v_proj.weight",
+        "text_model.encoder.layers.8.layer_norm1.bias",
+        "text_model.encoder.layers.8.layer_norm1.weight",
+        "text_model.encoder.layers.8.layer_norm2.bias",
+        "text_model.encoder.layers.8.layer_norm2.weight",
+        "text_model.encoder.layers.8.mlp.fc1.bias",
+        "text_model.encoder.layers.8.mlp.fc1.weight",
+        "text_model.encoder.layers.8.mlp.fc2.bias",
+        "text_model.encoder.layers.8.mlp.fc2.weight",
+        "text_model.encoder.layers.8.self_attn.k_proj.bias",
+        "text_model.encoder.layers.8.self_attn.k_proj.weight",
+        "text_model.encoder.layers.8.self_attn.out_proj.bias",
+        "text_model.encoder.layers.8.self_attn.out_proj.weight",
+        "text_model.encoder.layers.8.self_attn.q_proj.bias",
+        "text_model.encoder.layers.8.self_attn.q_proj.weight",
+        "text_model.encoder.layers.8.self_attn.v_proj.bias",
+        "text_model.encoder.layers.8.self_attn.v_proj.weight",
+        "text_model.encoder.layers.9.layer_norm1.bias",
+        "text_model.encoder.layers.9.layer_norm1.weight",
+        "text_model.encoder.layers.9.layer_norm2.bias",
+        "text_model.encoder.layers.9.layer_norm2.weight",
+        "text_model.encoder.layers.9.mlp.fc1.bias",
+        "text_model.encoder.layers.9.mlp.fc1.weight",
+        "text_model.encoder.layers.9.mlp.fc2.bias",
+        "text_model.encoder.layers.9.mlp.fc2.weight",
+        "text_model.encoder.layers.9.self_attn.k_proj.bias",
+        "text_model.encoder.layers.9.self_attn.k_proj.weight",
+        "text_model.encoder.layers.9.self_attn.out_proj.bias",
+        "text_model.encoder.layers.9.self_attn.out_proj.weight",
+        "text_model.encoder.layers.9.self_attn.q_proj.bias",
+        "text_model.encoder.layers.9.self_attn.q_proj.weight",
+        "text_model.encoder.layers.9.self_attn.v_proj.bias",
+        "text_model.encoder.layers.9.self_attn.v_proj.weight",
+        "text_model.final_layer_norm.bias",
+        "text_model.final_layer_norm.weight",
+        "text_projection.weight",
+        "visual_projection.weight"
+      ],
+      "mismatched_keys": [],
+      "error_msgs": []
+    }
+  },
+  "experts": {
+    "mnist": {
+      "repo_id": "tanganke/clip-vit-base-patch32_mnist",
+      "source": "https://huggingface.co/tanganke/clip-vit-base-patch32_mnist",
+      "revision": "28dca299b68f294bb368533172496dbde3901f3e",
+      "license": null,
+      "weights": {
+        "file": "model.safetensors",
+        "size_bytes": 349847824,
+        "sha256": "2f314468305297b901243938151fc791ab92c5953a64568cf9213e2ff4e9e19e",
+        "hub_lfs_sha256": "2f314468305297b901243938151fc791ab92c5953a64568cf9213e2ff4e9e19e",
+        "sha256_matches_hub": true
+      },
+      "num_parameters": 87456000,
+      "loading": {
+        "missing_keys": [],
+        "unexpected_keys": [],
+        "mismatched_keys": [],
+        "error_msgs": []
+      }
+    },
+    "svhn": {
+      "repo_id": "tanganke/clip-vit-base-patch32_svhn",
+      "source": "https://huggingface.co/tanganke/clip-vit-base-patch32_svhn",
+      "revision": "7da249d42c97bb5117832d37d6e54acc50dec7e0",
+      "license": null,
+      "weights": {
+        "file": "model.safetensors",
+        "size_bytes": 349847824,
+        "sha256": "5885065fa8ac4b891213fd0bc61163dbfa08f316e031ee916f596394e4c66a63",
+        "hub_lfs_sha256": "5885065fa8ac4b891213fd0bc61163dbfa08f316e031ee916f596394e4c66a63",
+        "sha256_matches_hub": true
+      },
+      "num_parameters": 87456000,
+      "loading": {
+        "missing_keys": [],
+        "unexpected_keys": [],
+        "mismatched_keys": [],
+        "error_msgs": []
+      }
+    },
+    "gtsrb": {
+      "repo_id": "tanganke/clip-vit-base-patch32_gtsrb",
+      "source": "https://huggingface.co/tanganke/clip-vit-base-patch32_gtsrb",
+      "revision": "7b11ced426cc9cd0430650be19d75748f3bd64d0",
+      "license": null,
+      "weights": {
+        "file": "model.safetensors",
+        "size_bytes": 349847824,
+        "sha256": "e87740392ae79431f180d5a80670095e403739912552d3a7d01fc5ca6d39c8a2",
+        "hub_lfs_sha256": "e87740392ae79431f180d5a80670095e403739912552d3a7d01fc5ca6d39c8a2",
+        "sha256_matches_hub": true
+      },
+      "num_parameters": 87456000,
+      "loading": {
+        "missing_keys": [],
+        "unexpected_keys": [],
+        "mismatched_keys": [],
+        "error_msgs": []
+      }
+    },
+    "eurosat": {
+      "repo_id": "tanganke/clip-vit-base-patch32_eurosat",
+      "source": "https://huggingface.co/tanganke/clip-vit-base-patch32_eurosat",
+      "revision": "7c114f53697b7acca1147a0d1e8b7c769979b57b",
+      "license": null,
+      "weights": {
+        "file": "model.safetensors",
+        "size_bytes": 349847824,
+        "sha256": "36e0a56cf1a475df2338b573a8eebebe3592f94404c324c1ee103cda390532a8",
+        "hub_lfs_sha256": "36e0a56cf1a475df2338b573a8eebebe3592f94404c324c1ee103cda390532a8",
+        "sha256_matches_hub": true
+      },
+      "num_parameters": 87456000,
+      "loading": {
+        "missing_keys": [],
+        "unexpected_keys": [],
+        "mismatched_keys": [],
+        "error_msgs": []
+      }
+    }
+  },
+  "details": {
+    "CKPT-01": {
+      "missing_keys": [],
+      "mismatched_keys": [],
+      "unexpected_keys_count": 200,
+      "undocumented_unexpected_keys": [],
+      "passed": true
+    },
+    "CKPT-02": {
+      "mnist": {
+        "missing_keys": [],
+        "mismatched_keys": [],
+        "unexpected_keys_count": 0,
+        "undocumented_unexpected_keys": [],
+        "passed": true
+      },
+      "svhn": {
+        "missing_keys": [],
+        "mismatched_keys": [],
+        "unexpected_keys_count": 0,
+        "undocumented_unexpected_keys": [],
+        "passed": true
+      },
+      "gtsrb": {
+        "missing_keys": [],
+        "mismatched_keys": [],
+        "unexpected_keys_count": 0,
+        "undocumented_unexpected_keys": [],
+        "passed": true
+      },
+      "eurosat": {
+        "missing_keys": [],
+        "mismatched_keys": [],
+        "unexpected_keys_count": 0,
+        "undocumented_unexpected_keys": [],
+        "passed": true
+      }
+    },
+    "CKPT-03": {
+      "mnist": {
+        "missing_keys": [],
+        "extra_keys": [],
+        "shape_mismatches": [],
+        "passed": true
+      },
+      "svhn": {
+        "missing_keys": [],
+        "extra_keys": [],
+        "shape_mismatches": [],
+        "passed": true
+      },
+      "gtsrb": {
+        "missing_keys": [],
+        "extra_keys": [],
+        "shape_mismatches": [],
+        "passed": true
+      },
+      "eurosat": {
+        "missing_keys": [],
+        "extra_keys": [],
+        "shape_mismatches": [],
+        "passed": true
+      }
+    },
+    "CKPT-05": {
+      "mnist": {
+        "max_abs_error": 2.3283064365386963e-10,
+        "atol": 1e-05,
+        "rtol": 1e-05,
+        "task_vector_l2_norm": 2.3015141504121255,
+        "passed": true
+      },
+      "svhn": {
+        "max_abs_error": 2.3283064365386963e-10,
+        "atol": 1e-05,
+        "rtol": 1e-05,
+        "task_vector_l2_norm": 2.697995972131163,
+        "passed": true
+      },
+      "gtsrb": {
+        "max_abs_error": 1.1641532182693481e-10,
+        "atol": 1e-05,
+        "rtol": 1e-05,
+        "task_vector_l2_norm": 2.4986959812128506,
+        "passed": true
+      },
+      "eurosat": {
+        "max_abs_error": 1.1641532182693481e-10,
+        "atol": 1e-05,
+        "rtol": 1e-05,
+        "task_vector_l2_norm": 2.1601805212659126,
+        "passed": true
+      }
+    }
+  },
+  "preprocessing": {
+    "processor": "openai/clip-vit-base-patch32",
+    "do_convert_rgb": true,
+    "do_resize": true,
+    "size": {
+      "shortest_edge": 224
+    },
+    "resample": 3,
+    "do_center_crop": true,
+    "crop_size": {
+      "height": 224,
+      "width": 224
+    },
+    "do_rescale": true,
+    "rescale_factor": 0.00392156862745098,
+    "do_normalize": true,
+    "image_mean": [
+      0.48145466,
+      0.4578275,
+      0.40821073
+    ],
+    "image_std": [
+      0.26862954,
+      0.26130258,
+      0.27577711
+    ]
+  },
+  "datasets": {
+    "mnist": {
+      "official_config": "third_party/DOGE/config/dataset/image_classification/test/mnist.yaml",
+      "load_dataset_args": {
+        "_target_": "datasets.load_dataset",
+        "path": "mnist",
+        "split": "test"
+      },
+      "hub": {
+        "resolved_id": "ylecun/mnist",
+        "revision": "77f3279092a1c1579b2250db8eafed0ad422088c",
+        "license": [
+          "mit"
+        ]
+      },
+      "split": "test",
+      "num_examples": 10000,
+      "columns": [
+        "image",
+        "label"
+      ],
+      "num_classes_feature": 10,
+      "num_classnames": 10,
+      "num_templates": 1,
+      "labels_present": 10,
+      "fingerprint": "0dfd083cb9267799",
+      "processed_sample_shape": [
+        1,
+        3,
+        224,
+        224
+      ],
+      "passed": true
+    },
+    "svhn": {
+      "official_config": "third_party/DOGE/config/dataset/image_classification/test/svhn.yaml",
+      "load_dataset_args": {
+        "_target_": "datasets.load_dataset",
+        "_args_": [
+          "svhn",
+          "cropped_digits"
+        ],
+        "split": "test"
+      },
+      "hub": {
+        "resolved_id": "ufldl-stanford/svhn",
+        "revision": "f9e1717d73324ebbc1ece84267ccd80d0aca0690",
+        "license": [
+          "other"
+        ]
+      },
+      "split": "test",
+      "num_examples": 26032,
+      "columns": [
+        "image",
+        "label"
+      ],
+      "num_classes_feature": 10,
+      "num_classnames": 10,
+      "num_templates": 1,
+      "labels_present": 10,
+      "fingerprint": "a207c6c13f80bf60",
+      "processed_sample_shape": [
+        1,
+        3,
+        224,
+        224
+      ],
+      "passed": true
+    },
+    "gtsrb": {
+      "official_config": "third_party/DOGE/config/dataset/image_classification/test/gtsrb.yaml",
+      "load_dataset_args": {
+        "_target_": "datasets.load_dataset",
+        "path": "tanganke/gtsrb",
+        "split": "test"
+      },
+      "hub": {
+        "resolved_id": "tanganke/gtsrb",
+        "revision": "ea889fff70dda7b09e94a4b207dded438deca549",
+        "license": null
+      },
+      "split": "test",
+      "num_examples": 12630,
+      "columns": [
+        "image",
+        "label"
+      ],
+      "num_classes_feature": 43,
+      "num_classnames": 43,
+      "num_templates": 3,
+      "labels_present": 43,
+      "fingerprint": "ff45d06818947202",
+      "processed_sample_shape": [
+        1,
+        3,
+        224,
+        224
+      ],
+      "passed": true
+    },
+    "eurosat": {
+      "official_config": "third_party/DOGE/config/dataset/image_classification/test/eurosat.yaml",
+      "load_dataset_args": {
+        "_target_": "datasets.load_dataset",
+        "path": "tanganke/eurosat",
+        "split": "test"
+      },
+      "hub": {
+        "resolved_id": "tanganke/eurosat",
+        "revision": "43750fc422c7fbd4289e2df3f7473617a5937acc",
+        "license": null
+      },
+      "split": "test",
+      "num_examples": 2700,
+      "columns": [
+        "image",
+        "label"
+      ],
+      "num_classes_feature": 10,
+      "num_classnames": 10,
+      "num_templates": 3,
+      "labels_present": 10,
+      "fingerprint": "905a7e438df2eaa3",
+      "processed_sample_shape": [
+        1,
+        3,
+        224,
+        224
+      ],
+      "passed": true
+    }
+  },
+  "elapsed_seconds": 63.2
+}

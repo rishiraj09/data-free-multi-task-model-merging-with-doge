@@ -1,0 +1,144 @@
+{
+  "run_id": "pair__svhn-eurosat__ties__seed-42",
+  "kind": "merge",
+  "timestamp": "2026-10-18T22:15:52.959292+00:00",
+  "status": "complete",
+  "fast_dev_run": false,
+  "method": "ties",
+  "task_set": [
+    "svhn",
+    "eurosat"
+  ],
+  "task_count": 2,
+  "seed": 42,
+  "base_model": "openai/clip-vit-base-patch32",
+  "config_id": "canonical-v1",
+  "method_config": {
+    "_target_": "fusion_bench.method.TiesMergingAlgorithm",
+    "scaling_factor": 0.3,
+    "threshold": 20,
+    "remove_keys": [],
+    "merge_func": "sum"
+  },
+  "evaluation_config": {
+    "batch_size": 128,
+    "num_workers": 8,
+    "precision": "float32"
+  },
+  "device": {
+    "selected_device": "cuda",
+    "canonical": true,
+    "cuda_available": true,
+    "mps_available": false,
+    "cuda_version": "12.4",
+    "cudnn_version": 90100,
+    "gpus": [
+      {
+        "name": "NVIDIA GeForce RTX 4090",
+        "total_memory_mb": 24082
+      }
+    ]
+  },
+  "precision": "float32",
+  "software": {
+    "python": "3.10.18",
+    "torch": "2.5.1",
+    "torchvision": "0.20.1",
+    "transformers": "4.48.3",
+    "datasets": "3.2.0",
+    "huggingface_hub": "0.28.1",
+    "lightning": "2.5.0.post0",
+    "hydra-core": "1.3.2",
+    "peft": "0.14.0",
+    "numpy": "1.26.4",
+    "scipy": "1.14.1",
+    "fusion_bench": "0.2.11",
+    "doge_repo_commit": "ca0a0a10c45bc0965f52f0815d6a6581ee103f85"
+  },
+  "provenance": {
+    "config_files": {
+      "configs/canonical_methods.yaml": "5936debf78c0c65b06d798b45c504f7d3a89620bbdf736922a5b2cb769413f31",
+      "configs/experiments.yaml": "f37d841124b27de500f8588ee86e3c7fc78b3e47e89be4285dd405e111d53260",
+      "configs/pins.yaml": "9a3bfab1d75f13811826a6b4e1900799a75cb00995ca6ffe39473bbfd033a148"
+    },
+    "code_files": {
+      "src/doge_exam/runner.py": "097033831fdbf5f1e46c10acbd7c45906ab8afc2f944dca55ec7858be1dadd58",
+      "src/doge_exam/metrics.py": "7add6fc56994099ab4ff9c7082634cab4b2fda2142c391bb8481f90a2eb72be0",
+      "src/doge_exam/probes.py": "a30e193183826f0f4e86c1f835f6215cdc1c54045ef7497f40f4d3f33e47b8a9",
+      "scripts/run_experiment.py": "170a023c8d6235d2900e79810e35ddbd0bd2b21885f97edb7477e73b33ecb7ca"
+    },
+    "git_commit": null
+  },
+  "notes": [],
+  "experiment": "P05",
+  "checkpoints": {
+    "_pretrained_": {
+      "repo_id": "openai/clip-vit-base-patch32",
+      "revision": "3d74acf9a28c67741b2f4f2ea7635f0aaf6f0268"
+    },
+    "svhn": {
+      "repo_id": "tanganke/clip-vit-base-patch32_svhn",
+      "revision": "7da249d42c97bb5117832d37d6e54acc50dec7e0"
+    },
+    "eurosat": {
+      "repo_id": "tanganke/clip-vit-base-patch32_eurosat",
+      "revision": "7c114f53697b7acca1147a0d1e8b7c769979b57b"
+    }
+  },
+  "merge_time_seconds": 9.503880500793457,
+  "merge_finished_at": "2026-10-18T22:16:02.834175+00:00",
+  "peak_memory_mb": 0.0,
+  "peak_cpu_rss_mb": 6828.65625,
+  "merged_weights_sha256": "dc5f711bbb31e9c58f0d8ae409bc71ed100efd7b16abd2114984b04a94bbb61b",
+  "merged_weights_finite": true,
+  "data_access_during_merge": {
+    "counts": {},
+    "data_accessed": false
+  },
+  "peak_memory_note": "GPU peak during method.run only; Task Arithmetic and TIES merge on CPU",
+  "test_data_first_loaded_at": "2026-10-18T22:16:03.070925+00:00",
+  "per_task": {
+    "svhn": {
+      "accuracy": 66.01106524467468,
+      "loss": 1.277646780014038,
+      "num_examples": 26032
+    },
+    "eurosat": {
+      "accuracy": 80.25925755500793,
+      "loss": 0.6160892248153687,
+      "num_examples": 2700
+    }
+  },
+  "evaluation_time_seconds": 13.4256911277771,
+  "reload_check": {
+    "task": "svhn",
+    "num_images": 64,
+    "max_abs_embedding_diff": 0.0,
+    "weights_identical_after_reload": true,
+    "passed": true
+  },
+  "per_task_accuracy": {
+    "svhn": 66.01106524467468,
+    "eurosat": 80.25925755500793
+  },
+  "individual_expert_accuracy": {
+    "svhn": 97.26874828338623,
+    "eurosat": 99.0740716457367
+  },
+  "reference_records": {
+    "svhn": "results/raw/ref__expert-svhn__mnist-svhn-gtsrb-eurosat__20261018T215031Z.json",
+    "eurosat": "results/raw/ref__expert-eurosat__mnist-svhn-gtsrb-eurosat__20261018T215116Z.json"
+  },
+  "mean_accuracy": 73.13516139984131,
+  "worst_task": "svhn",
+  "worst_task_accuracy": 66.01106524467468,
+  "normalized_retention": {
+    "svhn": 67.86461881092136,
+    "eurosat": 81.00934605977871
+  },
+  "mean_normalized_retention": 74.43698243535003,
+  "interference_gap": {
+    "svhn": 31.257683038711548,
+    "eurosat": 18.81481409072876
+  }
+}

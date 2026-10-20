@@ -1,0 +1,8 @@
+# PAPER-REPORTED values (Wei et al., ICML 2025, Table 1, CLIP ViT-B/32, 8-task benchmark).
+# Not our measurements. Used only for the section 6.7 sanity check of our reference
+# evaluations: a gap above max_gap_points is investigated before any merge is interpreted.
+# Note: the paper used the original Task Arithmetic checkpoints; we use the FusionBench
+# Hugging Face ports (tanganke/*), so small differences are expected.
+max_gap_points: 3.0
+pretrained: {mnist: 48.5, svhn: 31.4, gtsrb: 32.6, eurosat: 45.5}
+individual: {mnist: 99.7, svhn: 97.5, gtsrb: 98.7, eurosat: 99.7}

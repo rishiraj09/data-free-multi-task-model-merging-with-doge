@@ -1,0 +1,144 @@
+{
+  "run_id": "pair__mnist-gtsrb__ties__seed-42",
+  "kind": "merge",
+  "timestamp": "2026-10-18T22:11:19.751501+00:00",
+  "status": "complete",
+  "fast_dev_run": false,
+  "method": "ties",
+  "task_set": [
+    "mnist",
+    "gtsrb"
+  ],
+  "task_count": 2,
+  "seed": 42,
+  "base_model": "openai/clip-vit-base-patch32",
+  "config_id": "canonical-v1",
+  "method_config": {
+    "_target_": "fusion_bench.method.TiesMergingAlgorithm",
+    "scaling_factor": 0.3,
+    "threshold": 20,
+    "remove_keys": [],
+    "merge_func": "sum"
+  },
+  "evaluation_config": {
+    "batch_size": 128,
+    "num_workers": 8,
+    "precision": "float32"
+  },
+  "device": {
+    "selected_device": "cuda",
+    "canonical": true,
+    "cuda_available": true,
+    "mps_available": false,
+    "cuda_version": "12.4",
+    "cudnn_version": 90100,
+    "gpus": [
+      {
+        "name": "NVIDIA GeForce RTX 4090",
+        "total_memory_mb": 24082
+      }
+    ]
+  },
+  "precision": "float32",
+  "software": {
+    "python": "3.10.18",
+    "torch": "2.5.1",
+    "torchvision": "0.20.1",
+    "transformers": "4.48.3",
+    "datasets": "3.2.0",
+    "huggingface_hub": "0.28.1",
+    "lightning": "2.5.0.post0",
+    "hydra-core": "1.3.2",
+    "peft": "0.14.0",
+    "numpy": "1.26.4",
+    "scipy": "1.14.1",
+    "fusion_bench": "0.2.11",
+    "doge_repo_commit": "ca0a0a10c45bc0965f52f0815d6a6581ee103f85"
+  },
+  "provenance": {
+    "config_files": {
+      "configs/canonical_methods.yaml": "5936debf78c0c65b06d798b45c504f7d3a89620bbdf736922a5b2cb769413f31",
+      "configs/experiments.yaml": "f37d841124b27de500f8588ee86e3c7fc78b3e47e89be4285dd405e111d53260",
+      "configs/pins.yaml": "9a3bfab1d75f13811826a6b4e1900799a75cb00995ca6ffe39473bbfd033a148"
+    },
+    "code_files": {
+      "src/doge_exam/runner.py": "097033831fdbf5f1e46c10acbd7c45906ab8afc2f944dca55ec7858be1dadd58",
+      "src/doge_exam/metrics.py": "7add6fc56994099ab4ff9c7082634cab4b2fda2142c391bb8481f90a2eb72be0",
+      "src/doge_exam/probes.py": "a30e193183826f0f4e86c1f835f6215cdc1c54045ef7497f40f4d3f33e47b8a9",
+      "scripts/run_experiment.py": "170a023c8d6235d2900e79810e35ddbd0bd2b21885f97edb7477e73b33ecb7ca"
+    },
+    "git_commit": null
+  },
+  "notes": [],
+  "experiment": "P02",
+  "checkpoints": {
+    "_pretrained_": {
+      "repo_id": "openai/clip-vit-base-patch32",
+      "revision": "3d74acf9a28c67741b2f4f2ea7635f0aaf6f0268"
+    },
+    "mnist": {
+      "repo_id": "tanganke/clip-vit-base-patch32_mnist",
+      "revision": "28dca299b68f294bb368533172496dbde3901f3e"
+    },
+    "gtsrb": {
+      "repo_id": "tanganke/clip-vit-base-patch32_gtsrb",
+      "revision": "7b11ced426cc9cd0430650be19d75748f3bd64d0"
+    }
+  },
+  "merge_time_seconds": 9.384261131286621,
+  "merge_finished_at": "2026-10-18T22:11:29.526629+00:00",
+  "peak_memory_mb": 0.0,
+  "peak_cpu_rss_mb": 6839.59375,
+  "merged_weights_sha256": "9f336152a096cdec96280a7a55e54e3043be0159c7a038578ba35bab06b9aa91",
+  "merged_weights_finite": true,
+  "data_access_during_merge": {
+    "counts": {},
+    "data_accessed": false
+  },
+  "peak_memory_note": "GPU peak during method.run only; Task Arithmetic and TIES merge on CPU",
+  "test_data_first_loaded_at": "2026-10-18T22:11:29.772738+00:00",
+  "per_task": {
+    "mnist": {
+      "accuracy": 88.98000121116638,
+      "loss": 0.6189343929290771,
+      "num_examples": 10000
+    },
+    "gtsrb": {
+      "accuracy": 69.89706754684448,
+      "loss": 1.0882995128631592,
+      "num_examples": 12630
+    }
+  },
+  "evaluation_time_seconds": 11.740603685379028,
+  "reload_check": {
+    "task": "mnist",
+    "num_images": 64,
+    "max_abs_embedding_diff": 0.0,
+    "weights_identical_after_reload": true,
+    "passed": true
+  },
+  "per_task_accuracy": {
+    "mnist": 88.98000121116638,
+    "gtsrb": 69.89706754684448
+  },
+  "individual_expert_accuracy": {
+    "mnist": 99.58000183105469,
+    "gtsrb": 98.9073634147644
+  },
+  "reference_records": {
+    "mnist": "results/raw/ref__expert-mnist__mnist-svhn-gtsrb-eurosat__20261018T215008Z.json",
+    "gtsrb": "results/raw/ref__expert-gtsrb__mnist-svhn-gtsrb-eurosat__20261018T215053Z.json"
+  },
+  "mean_accuracy": 79.43853437900543,
+  "worst_task": "gtsrb",
+  "worst_task_accuracy": 69.89706754684448,
+  "normalized_retention": {
+    "mnist": 89.35529180058458,
+    "gtsrb": 70.66922535760426
+  },
+  "mean_normalized_retention": 80.01225857909442,
+  "interference_gap": {
+    "mnist": 10.600000619888306,
+    "gtsrb": 29.010295867919922
+  }
+}

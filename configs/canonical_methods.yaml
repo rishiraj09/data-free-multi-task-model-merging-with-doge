@@ -1,0 +1,47 @@
+# Canonical method settings, fixed before any merge or evaluation run.
+# None of these values was chosen by looking at test (or validation) accuracy.
+# Rationale and code references: docs/PAPER_TO_CODE_MAP.md.
+config_id: canonical-v1
+
+base_model: openai/clip-vit-base-patch32
+experts:  # Hugging Face ids from third_party/DOGE/config/model/clip-vit/
+  mnist: tanganke/clip-vit-base-patch32_mnist
+  svhn: tanganke/clip-vit-base-patch32_svhn
+  gtsrb: tanganke/clip-vit-base-patch32_gtsrb
+  eurosat: tanganke/clip-vit-base-patch32_eurosat
+
+methods:
+  task-arithmetic:
+    _target_: fusion_bench.method.TaskArithmeticAlgorithm
+    # FusionBench CLIP ViT-B/32 benchmark command (docs/modelpool/clip_vit.md) uses 0.3;
+    # DOGE paper App. B calls 0.3 "a beneficial scaling coefficient for Task Arithmetic".
+    # The repo default file config/method/task_arithmetic.yaml says 0.5 (generic default).
+    scaling_factor: 0.3
+  ties:
+    _target_: fusion_bench.method.TiesMergingAlgorithm
+    scaling_factor: 0.3   # same source as Task Arithmetic
+    threshold: 20         # keep top 20% of each task vector by magnitude (official config and docs)
+    remove_keys: []
+    merge_func: sum       # official config default (the TIES paper uses disjoint mean)
+  doge-ta:
+    _target_: fusion_bench.method.DOGE_TA_Algorithm
+    # Official config/method/DOGE_TA/DOGE_TA.yaml, unchanged. Hard-coded in DOGE_TA.py:
+    # Adam, lr 1e-4, 400 iterations per layer, delta initialised at zero.
+    subspace: 6   # shared-subspace size = floor(rank / 6) = 128 for every ViT-B/32 linear layer
+    K: 30         # keep top 30% of each task vector by magnitude
+    lamda: 0.07   # eta: layer-wise coefficient lambda_i^l = eta / ||tau_i^l||
+
+# The same settings are used for the 2-task and 4-task merges (no per-task-set tuning).
+seed: 42
+
+similarity:
+  definition_id: encw-cos
+  # Cosine similarity between flattened task vectors tau_i = theta_i - theta_0, restricted to
+  # the parameters DOGE operates on: CLIPVisionModel state-dict keys containing "encoder" and
+  # "weight" but not "layer_norm" (same filter as DOGE_TA.compute_task_vectors).
+  # = the 72 linear weight matrices (q, k, v, out_proj, fc1, fc2 x 12 blocks),
+  #   84,934,656 of 87,456,000 vision-model parameters.
+  key_filter: {include_all: [encoder, weight], exclude_any: [layer_norm]}
+  key_order: sorted
+  dtype: float64
+  formula: dot(a, b) / (norm(a) * norm(b))

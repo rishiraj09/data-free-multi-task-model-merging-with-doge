@@ -1,0 +1,11 @@
+# Default storage roots. Relative paths resolve against the project root.
+# Override per machine either with configs/paths.local.yaml (git-ignored, same keys)
+# or with environment variables, which take precedence:
+#   DOGE_DATA_ROOT, DOGE_CHECKPOINT_ROOT, DOGE_CACHE_ROOT,
+#   DOGE_RESULTS_ROOT, DOGE_FIGURES_ROOT
+# On a cloud machine, point these at persistent storage so artifacts survive restarts.
+data_root: data
+checkpoint_root: checkpoints
+cache_root: cache
+results_root: results
+figures_root: figures

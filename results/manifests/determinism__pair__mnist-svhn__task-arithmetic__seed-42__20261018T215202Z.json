@@ -1,0 +1,24 @@
+{
+  "kind": "determinism",
+  "test_id": "BASE-03",
+  "timestamp": "2026-10-18T21:52:02.371010+00:00",
+  "run_id": "pair__mnist-svhn__task-arithmetic__seed-42",
+  "merged_weights_sha256": [
+    "d530d9606e1062a786ee99c040248d10a24c3ab36ebd8f0393ec82876a3a273f",
+    "d530d9606e1062a786ee99c040248d10a24c3ab36ebd8f0393ec82876a3a273f"
+  ],
+  "identical": true,
+  "provenance": {
+    "config_files": {
+      "configs/canonical_methods.yaml": "5936debf78c0c65b06d798b45c504f7d3a89620bbdf736922a5b2cb769413f31",
+      "configs/experiments.yaml": "f37d841124b27de500f8588ee86e3c7fc78b3e47e89be4285dd405e111d53260",
+      "configs/pins.yaml": "9a3bfab1d75f13811826a6b4e1900799a75cb00995ca6ffe39473bbfd033a148"
+    },
+    "code_files": {
+      "src/doge_exam/runner.py": "2f70630f900efa3d5a18211aed35aba4ae955d982e6e5ebe8881108fd817dc16",
+      "src/doge_exam/metrics.py": "7add6fc56994099ab4ff9c7082634cab4b2fda2142c391bb8481f90a2eb72be0",
+      "scripts/run_experiment.py": "170a023c8d6235d2900e79810e35ddbd0bd2b21885f97edb7477e73b33ecb7ca"
+    },
+    "git_commit": null
+  }
+}

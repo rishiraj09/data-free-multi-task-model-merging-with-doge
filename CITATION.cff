@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "If you use this code or these results, please cite this repository and the DOGE paper."
+title: "Data-Free Multi-Task Model Merging with DOGE: an evaluation on CLIP ViT-B/32"
+type: software
+authors:
+  - given-names: Rishiraj
+date-released: "2026-10-19"
+keywords:
+  - model merging
+  - task arithmetic
+  - TIES-merging
+  - DOGE
+  - CLIP
+references:
+  - type: conference-paper
+    title: "Modeling Multi-Task Model Merging as Adaptive Projective Gradient Descent"
+    authors:
+      - family-names: Wei
+        given-names: Yongxian
+      - family-names: Tang
+        given-names: Anke
+      - family-names: Shen
+        given-names: Li
+      - family-names: Hu
+        given-names: Zixuan
+      - family-names: Yuan
+        given-names: Chun
+      - family-names: Cao
+        given-names: Xiaochun
+    collection-title: "Proceedings of the 42nd International Conference on Machine Learning"
+    volume: 267
+    year: 2025
+    url: "https://proceedings.mlr.press/v267/wei25k.html"

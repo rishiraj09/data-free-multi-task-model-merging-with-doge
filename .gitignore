@@ -1,0 +1,36 @@
+# Python environments and caches
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Local test suite (not published to GitHub)
+/tests/
+
+# Official DOGE code: cloned at a pinned commit by scripts/setup_env.sh, not redistributed
+third_party/
+
+# Downloaded checkpoints, datasets and caches (several GB)
+cache/
+data/
+checkpoints/
+outputs/
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+results/merged_models/
+
+# Local runs that are not part of the published evidence
+results/smoke/
+rerun/
+
+# Machine-specific settings and secrets
+configs/paths.local.yaml
+.env
+
+# OS files
+.DS_Store

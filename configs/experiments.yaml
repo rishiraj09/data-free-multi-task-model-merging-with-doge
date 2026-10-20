@@ -1,0 +1,15 @@
+# Experiment matrix (experimental protocol section 5.2). Task order follows section 5.1.
+tasks: [mnist, svhn, gtsrb, eurosat]
+experiments:
+  P01: {kind: pair, tasks: [mnist, svhn], tier: 1}
+  P03: {kind: pair, tasks: [mnist, eurosat], tier: 1}
+  F01: {kind: four, tasks: [mnist, svhn, gtsrb, eurosat], tier: 1}
+  P02: {kind: pair, tasks: [mnist, gtsrb], tier: 3}
+  P04: {kind: pair, tasks: [svhn, gtsrb], tier: 3}
+  P05: {kind: pair, tasks: [svhn, eurosat], tier: 3}
+  P06: {kind: pair, tasks: [gtsrb, eurosat], tier: 3}
+# Evaluation settings shared by every run (task-pool _template.yaml defaults)
+evaluation:
+  batch_size: 128
+  num_workers: 8
+  precision: float32
