@@ -1,9 +1,8 @@
 # Instructions: install, test and reproduce
 
-This guide takes you from the extracted exam submission to (a) a passing test suite, (b) every
-table, figure and the notebook regenerated from the shipped results, and optionally (c) a full
-re-run of all experiments
-on a GPU. Each step says what to run, how long it takes and what you should see.
+This guide covers environment setup, optional local tests, regeneration of every table, figure
+and notebook from the shipped results, and optional GPU re-runs of the experiments. Each step
+says what to run, how long it takes and what you should see.
 
 | Level | What it shows | Needs | Time |
 |---|---|---|---|
@@ -54,15 +53,18 @@ git --version && uv --version
 
 ## 2. Get the code
 
-Extract the submitted archive and open a terminal in the directory containing its `exam-project`
-folder. No project repository URL or Git history is needed. Git is required by the setup script
-to download the official DOGE dependency.
+Clone the GitHub repository and enter its root directory. Git is also required by the setup
+script to download the official DOGE dependency.
 
 ```bash
-cd exam-project
+git clone https://github.com/rishiraj09/data-free-multi-task-model-merging-with-doge.git
+cd data-free-multi-task-model-merging-with-doge
 ```
 
-All commands in this guide run from the repository root (`exam-project/`), which contains
+Alternatively, extract the submitted archive and enter the folder containing `pyproject.toml`;
+the archive does not need project Git history.
+
+All commands in this guide run from the repository root (`data-free-multi-task-model-merging-with-doge/`), which contains
 `README.md`, `pyproject.toml`, and `scripts/`. If the extracted folder has another name, enter
 that folder instead.
 
@@ -92,7 +94,7 @@ Expected end of the output when the local tests are present (takes 3–10 minute
 ```
 ...........                                                              [100%]
 11 passed in ...
-/path/to/exam-project/results/manifests/env__cpu__<timestamp>.json
+/path/to/data-free-multi-task-model-merging-with-doge/results/manifests/env__cpu__<timestamp>.json
 ```
 
 In a GitHub checkout, the test summary is replaced by
@@ -332,7 +334,7 @@ One JSON file per run in `results/raw/`, named `<run_id>__<UTC timestamp>.json`,
 Run IDs: `pair__<task>-<task>__<method>__seed-42`, `four__mnist-svhn-gtsrb-eurosat__<method>__seed-42`,
 `ref__<pretrained|expert-task>__mnist-svhn-gtsrb-eurosat`, `similarity__all-pairs__encw-cos`.
 
-Main fields of a merge record (full contract: [protocol §7.2](docs/EXPERIMENT_PROTOCOL.md#72-minimum-result-fields)):
+Main fields of a merge record (full contract: [protocol section 7.2](docs/EXPERIMENT_PROTOCOL.md#72-minimum-result-fields)):
 
 | Field | Meaning |
 |---|---|

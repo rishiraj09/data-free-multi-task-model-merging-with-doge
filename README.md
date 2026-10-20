@@ -1,5 +1,8 @@
 # Data-Free Multi-Task Model Merging with DOGE
 
+**Author:** Salam Rishiraj Singh  
+**Student ID:** 1974210 
+
 [![Python 3.10](https://img.shields.io/badge/python-3.10-blue.svg)](https://www.python.org/downloads/release/python-3100/)
 [![PyTorch 2.5.1](https://img.shields.io/badge/PyTorch-2.5.1-ee4c2c.svg)](https://pytorch.org/)
 
@@ -23,8 +26,8 @@ and every table, figure and the notebook are regenerated from those records by c
 > [Quick start](#quick-start) below.
 
 The repository includes source code, configurations, raw and processed results, figures, and
-the executed notebook. The `tests/` directory is retained locally and excluded from GitHub. Slides and speaker notes are not included. Downloaded models,
-datasets, the official DOGE checkout, and the Python environment are created during setup or
+the executed notebook. The `tests/` directory is retained locally and excluded from GitHub.
+Slides and speaker notes are not included. Downloaded models, datasets, the official DOGE checkout, and the Python environment are created during setup or
 experiment runs; they are not required to read the submitted results.
 
 ---
@@ -85,14 +88,17 @@ Hypothesis verdicts, discrepancies with the paper and limitations are in
 Requirements: macOS on Apple Silicon or Linux (Windows through WSL2), `git`, and
 [`uv`](https://docs.astral.sh/uv/). No GPU is needed to install, test and re-analyse.
 
-Extract the submission archive, then open a terminal in the directory containing the extracted
-`exam-project` folder:
+Clone the GitHub repository and enter its root directory:
 
 ```bash
-cd exam-project
+git clone https://github.com/rishiraj09/data-free-multi-task-model-merging-with-doge.git
+cd data-free-multi-task-model-merging-with-doge
 bash scripts/setup_env.sh      # Python 3.10 venv and official DOGE code at a pinned commit
 source .venv/bin/activate
 ```
+
+If using the submission archive instead, extract it and enter the folder containing
+`pyproject.toml` before running the setup commands.
 
 Then regenerate every table and figure, and the notebook, from the shipped raw results:
 
@@ -103,7 +109,7 @@ uv pip install -r requirements-notebook.txt && python scripts/build_notebook.py
 ```
 
 Re-running the experiments themselves needs a CUDA GPU and 30–45 minutes; see
-[INSTRUCTION.md §6](INSTRUCTION.md#6-re-run-the-experiments-gpu).
+[INSTRUCTION.md section 6](INSTRUCTION.md#6-re-run-the-experiments-gpu).
 
 ### Clean-environment check
 
@@ -123,7 +129,7 @@ manifest files when cleaning up local verification output.
 ## Repository layout
 
 ```
-exam-project/
+data-free-multi-task-model-merging-with-doge/
 ├── README.md                  this file
 ├── INSTRUCTION.md             step-by-step install, test and reproduction guide
 ├── CITATION.cff               how to cite this repository
@@ -224,14 +230,14 @@ transformers 4.48.3 ([environment record](results/manifests/env__cuda__20261018T
   wording; the 6 earliest records used an earlier runner version with the same evaluation code.
   [Source text revisions](results/manifests/source_text_revisions.json) record the exact original
   and current file hashes without changing the raw results (`python scripts/verify_provenance.py`,
-  [INSTRUCTION.md §8](INSTRUCTION.md#8-verify-provenance)).
+  [INSTRUCTION.md section 8](INSTRUCTION.md#8-verify-provenance)).
 - **Immutable raw results, generated outputs.** Raw records are never edited; tables, figures and the
   notebook are produced by code from them, and a test regenerates everything from a copy of
   `results/raw` and checks it against the records.
 - **Local test suite.** 35 tests cover the environment, checkpoint integrity, merging maths, DOGE
   behavior, similarity and analysis. They are kept locally and excluded from GitHub. Published
   verification remains available through `scripts/check_results.py`, `scripts/verify_provenance.py`
-  and the executed notebook; see [INSTRUCTION.md §4](INSTRUCTION.md#4-run-the-test-suite).
+  and the executed notebook; see [INSTRUCTION.md section 4](INSTRUCTION.md#4-run-the-test-suite).
 
 ---
 
@@ -257,7 +263,7 @@ Details: [docs/ANALYSIS_NOTES.md](docs/ANALYSIS_NOTES.md).
 | Document | Contents |
 |---|---|
 | [INSTRUCTION.md](INSTRUCTION.md) | Install, test, regenerate, re-run, verify, troubleshoot |
-| [docs/EXPERIMENT_PROTOCOL.md](docs/EXPERIMENT_PROTOCOL.md) | Design, metrics, hypotheses, test plan (test IDs), result-file contract |
+| [docs/EXPERIMENT_PROTOCOL.md](docs/EXPERIMENT_PROTOCOL.md) | Design, metrics, hypotheses, published verification commands, evidence and result-file contract |
 | [docs/PAPER_TO_CODE_MAP.md](docs/PAPER_TO_CODE_MAP.md) | Symbol glossary, Algorithm 1 → code, defaults, discrepancies D1–D7 |
 | [docs/ANALYSIS_NOTES.md](docs/ANALYSIS_NOTES.md) | Findings per question, hypothesis verdicts, limitations |
 | [notebooks/doge_merging_exam.ipynb](notebooks/doge_merging_exam.ipynb) | Executed notebook with all tables and figures |

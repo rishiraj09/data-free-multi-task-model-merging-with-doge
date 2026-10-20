@@ -95,11 +95,11 @@ Baselines:
 
 | Setting | Value | Source |
 |---|---|---|
-| DOGE iterations, lr, optimizer | 400 per layer, 1e-4, Adam | Hard-coded, `DOGE_TA.py` lines 143, 153; paper §5.1 and App. B |
-| DOGE η | 0.07 | `DOGE_TA.yaml` `lamda`; paper §5.1 |
-| DOGE per-task basis k | rank / n | code line 205; paper §5.1 |
+| DOGE iterations, lr, optimizer | 400 per layer, 1e-4, Adam | Hard-coded, `DOGE_TA.py` lines 143, 153; paper section 5.1 and App. B |
+| DOGE η | 0.07 | `DOGE_TA.yaml` `lamda`; paper section 5.1 |
+| DOGE per-task basis k | rank / n | code line 205; paper section 5.1 |
 | DOGE shared-subspace size | rank / 6 | `DOGE_TA.yaml` `subspace: 6`; paper App. B |
-| DOGE magnitude mask | top 30% | `DOGE_TA.yaml` `K: 30`; paper §5.1 ("following TIES") |
+| DOGE magnitude mask | top 30% | `DOGE_TA.yaml` `K: 30`; paper section 5.1 ("following TIES") |
 | TA scaling factor | 0.5 in `task_arithmetic.yaml`; 0.3 in the FusionBench CLIP ViT-B/32 benchmark command | `config/method/task_arithmetic.yaml`; `docs/modelpool/clip_vit.md` line 348 |
 | TIES scaling factor, threshold, merge | 0.5, 20, sum in `ties_merging.yaml`; 0.3, 20 in the benchmark command | `config/method/ties_merging.yaml`; `docs/modelpool/clip_vit.md` line 391 |
 | Evaluation batch size, workers | 128, 8 | task-pool `_template.yaml` |
@@ -114,7 +114,7 @@ Baselines:
 | D4 | TIES paper merges agreeing entries by mean | FusionBench config uses `merge_func: sum` | All TIES experiments use the official `sum` setting |
 | D5 | Algorithm 1 applies to all parameters | DOGE only changes the 72 linear weight matrices; other parameters stay at θ0, while TA and TIES merge all parameters | The parameter scope differs between DOGE and the baselines |
 | D6 | — | Running time and memory are only printed (lines 168-170), not saved | [`src/doge_exam/runner.py`](../src/doge_exam/runner.py) records merge time and peak memory |
-| D7 | §4.2: Δ is updated only in directions orthogonal to S_share | The gradient is projected, but Adam then rescales each coordinate, so the step is not orthogonal; measured on MNIST-SVHN, up to 27% of Δ's norm lies in S_share | The constraint holds for projected gradients, not for the accumulated Δ |
+| D7 | section 4.2: Δ is updated only in directions orthogonal to S_share | The gradient is projected, but Adam then rescales each coordinate, so the step is not orthogonal; measured on MNIST-SVHN, up to 27% of Δ's norm lies in S_share | The constraint holds for projected gradients, not for the accumulated Δ |
 
 **Projection tolerance (DOGE-03).** The gradient projection check uses a relative tolerance of
 1e-3 for ‖Pg‖/‖g‖, rather than 1e-5. The official implementation builds P = BBᵀ from a
@@ -165,9 +165,9 @@ Evaluation controls:
   [`configs/pins.yaml`](../configs/pins.yaml). The dependency pins include `datasets==3.2.0`
   for the legacy SVHN loader.
 - [`src/doge_exam/runner.py`](../src/doge_exam/runner.py) builds the model and task pools, runs
-  each method, and records the [protocol §7.2 fields](EXPERIMENT_PROTOCOL.md#72-minimum-result-fields),
+  each method, and records the [protocol section 7.2 fields](EXPERIMENT_PROTOCOL.md#72-minimum-result-fields),
   including merge time and peak memory (D6).
 - DOGE memory: each layer's projection is at most 3072 × 3072 floats and the 85M-value mask
   vectors are built on CPU; the submitted experiments used a 24 GB RTX 4090.
-- Follow [INSTRUCTION.md §6](../INSTRUCTION.md#6-re-run-the-experiments-gpu) to repeat the
+- Follow [INSTRUCTION.md section 6](../INSTRUCTION.md#6-re-run-the-experiments-gpu) to repeat the
   experiments using the included scripts.

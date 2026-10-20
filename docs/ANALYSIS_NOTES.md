@@ -22,7 +22,7 @@ highest worst-task accuracy in all seven merges. Gain in mean accuracy over Task
 normalized retention of DOGE is 96.74-99.23 on the six pairs and 94.66 on the four-task merge.
 TIES is the weakest method in every merge (see section 3, D-TIES).
 
-**RQ2: two versus four models** (`two_vs_four`, [protocol §5.3](EXPERIMENT_PROTOCOL.md#53-analysis-definitions)). Change in mean
+**RQ2: two versus four models** (`two_vs_four`, [protocol section 5.3](EXPERIMENT_PROTOCOL.md#53-analysis-definitions)). Change in mean
 retention from the pair average to F01: Task Arithmetic −6.05 points (91.13 → 85.08),
 DOGE TA −3.24 (97.89 → 94.66), TIES +0.73 (79.35 → 80.08). DOGE loses retention on all four
 tasks but at most 4.96 points (EuroSAT); Task Arithmetic loses most on EuroSAT (−20.22) and
@@ -40,7 +40,7 @@ all between 0.013 and 0.154 this is an observation, not a tested effect.
 
 ## 2. Hypotheses
 
-Statements: [protocol §5.5](EXPERIMENT_PROTOCOL.md#55-primary-hypotheses).
+Statements: [protocol section 5.5](EXPERIMENT_PROTOCOL.md#55-primary-hypotheses).
 Verdict rules: [`src/doge_exam/analysis.py`](../src/doge_exam/analysis.py).
 
 | Hypothesis | Verdict | Evidence |
@@ -96,4 +96,4 @@ Verdict rules: [`src/doge_exam/analysis.py`](../src/doge_exam/analysis.py).
 7. **Infrastructure.** Runs were made on a Runpod pod without persistent storage; every raw result
    was copied to the Mac immediately and the pod was then stopped. Reproducing needs a fresh
    environment ([`scripts/setup_env.sh`](../scripts/setup_env.sh)) and the pinned revisions in
-   [`configs/pins.yaml`](../configs/pins.yaml); see [INSTRUCTION.md §6](../INSTRUCTION.md#6-re-run-the-experiments-gpu).
+   [`configs/pins.yaml`](../configs/pins.yaml); see [INSTRUCTION.md section 6](../INSTRUCTION.md#6-re-run-the-experiments-gpu).

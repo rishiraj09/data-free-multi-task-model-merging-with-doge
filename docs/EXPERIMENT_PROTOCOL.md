@@ -1,8 +1,8 @@
 # Experimental protocol
 
 This document describes the experimental design, evaluation criteria and verification checks.
-Section numbering matches the references in the source code and result metadata. Status
-checkboxes record what was verified; the evidence for each item is in
+Section numbering matches the references in the source code and result metadata. The published
+checks and stored evidence described below are available without the local `tests/` directory in
 [`results/`](../results/) and in [ANALYSIS_NOTES.md](ANALYSIS_NOTES.md). Unlinked repository
 paths are relative to the project root. Section 9 describes the compute used
 during the project (a local Mac for development, a cloud RTX 4090 for all canonical runs).
@@ -20,7 +20,6 @@ Yongxian Wei, Anke Tang, Li Shen, Zixuan Hu, Chun Yuan, and Xiaochun Cao. **Mode
 
 - Task Arithmetic: Ilharco et al., Editing Models with Task Arithmetic.
 - TIES-Merging: Yadav et al., TIES-Merging: Resolving Interference When Merging Models.
-- LiNeS may be discussed as related work but is not required in the reduced experimental matrix.
 
 ### Relevant paper settings
 
@@ -44,7 +43,7 @@ The values used in the submitted runs and their rationale are documented in the
 
 ### 5.1 Task set
 
-The required tasks are:
+The evaluated tasks are:
 
 1. MNIST
 2. SVHN
@@ -63,25 +62,19 @@ Checkpoint and dataset availability was verified in the
 
 ### 5.2 Experiment matrix
 
-| ID | Tasks | Expected relationship | Tier |
-|---|---|---|---|
-| P01 | MNIST, SVHN | Relatively related digit recognition | 1 |
-| P03 | MNIST, EuroSAT | Dissimilar | 1 |
-| F01 | MNIST, SVHN, GTSRB, EuroSAT | Four-task merge | 1 |
-| P02 | MNIST, GTSRB | Different domains, both symbol-like | 3 |
-| P04 | SVHN, GTSRB | Street imagery, symbol recognition | 3 |
-| P05 | SVHN, EuroSAT | Dissimilar | 3 |
-| P06 | GTSRB, EuroSAT | Dissimilar | 3 |
+| ID | Tasks | Expected relationship |
+|---|---|---|
+| P01 | MNIST, SVHN | Relatively related digit recognition |
+| P02 | MNIST, GTSRB | Different domains, both symbol-like |
+| P03 | MNIST, EuroSAT | Dissimilar |
+| P04 | SVHN, GTSRB | Street imagery, symbol recognition |
+| P05 | SVHN, EuroSAT | Dissimilar |
+| P06 | GTSRB, EuroSAT | Dissimilar |
+| F01 | MNIST, SVHN, GTSRB, EuroSAT | Four-task merge |
 
-For every experiment, run:
-
-- Task Arithmetic
-- TIES-Merging
-- DOGE applied to Task Arithmetic
-
-Tier 2 computes task-vector cosine similarity for all six pairs, P01 to P06, regardless of whether their merges are run.
-
-Also evaluate the pretrained model and all four individual experts on all four test sets as references.
+Each task set was merged with Task Arithmetic, TIES-Merging and DOGE applied to Task Arithmetic.
+Task-vector cosine similarity was computed for all six pairs. Reference evaluations test the
+pretrained model and all four individual experts on all four test sets.
 
 The submitted experiments use one frozen configuration per method; hyperparameter sweeps and
 ablations are outside the project scope. All 21 merge runs and all six pairwise similarities
@@ -89,7 +82,7 @@ were completed.
 
 ### 5.3 Analysis definitions
 
-- Two-versus-four comparison: for each task, compare its normalized retention in F01 with its mean normalized retention across the evaluated pairwise merges that contain it, per method. Also compare mean normalized retention of F01 with the mean over evaluated pairs. With Tier 1 only, GTSRB has no pairwise result; report its F01 value alone and state this limitation.
+- Two-versus-four comparison: for each task, compare its normalized retention in F01 with its mean normalized retention across the evaluated pairwise merges that contain it, per method. Also compare mean normalized retention of F01 with the mean over evaluated pairs. All six pairwise merges were completed, so every task has three pairwise results for each method.
 - Similarity analysis: per method, rank the evaluated pairs by task-vector cosine similarity and by mean normalized retention, and report both orderings plus Spearman's rank coefficient as a descriptive statistic only. The exact similarity definition, including the parameter set used to flatten the vectors, was fixed before inspecting merge results; see the [task-vector definition](PAPER_TO_CODE_MAP.md#7-task-vector-similarity-definition-encw-cos).
 
 ### 5.4 Metrics
@@ -127,103 +120,145 @@ Failure to confirm a hypothesis is a valid result and must not be hidden.
 
 ---
 
-## 6. Tests and verification
+## 6. Verification and published evidence
 
-The Python test suite described below is retained locally and excluded from GitHub. The
-published repository includes the executed notebook, result checks and provenance verifier;
-see [INSTRUCTION.md §5](../INSTRUCTION.md#5-regenerate-every-table-figure-and-the-notebook)
-and [§8](../INSTRUCTION.md#8-verify-provenance).
+The research design and result checks remain relevant without publishing the local unit tests.
+The GitHub repository includes the commands and evidence below; none requires `tests/` or
+`pytest`. The setup script skips its optional environment-test step when that directory is
+absent. Additional synthetic unit tests are retained locally and are not part of the public
+reproduction instructions. Identifiers such as ENV, CKPT, MATH, BASE, DOGE and INT in source
+comments identify the verification categories described here.
 
-### 6.1 Environment tests
+### 6.1 Environment records
 
-| Test ID | Test | Pass condition |
-|---|---|---|
-| ENV-01 | Import core dependencies | Imports complete without exceptions |
-| ENV-02 | Detect device | CUDA device is reported on Colab/Runpod; CPU or MPS fallback is explicit locally |
-| ENV-03 | Record versions | Python, PyTorch, CUDA, transformers, and FusionBench versions are written to an artifact |
-| ENV-04 | Clean restart | Environment setup works in a fresh runtime |
-| ENV-05 | Storage paths | Dataset, checkpoint, cache, result, and figure paths are configurable |
+The environment record captures Python and package versions, CUDA/MPS/CPU selection, GPU details
+and the official DOGE commit (ENV-01 to ENV-05). The setup script records the current environment;
+it can also be recorded explicitly after activating the project environment:
 
-### 6.2 Checkpoint integrity tests
+```bash
+python scripts/record_env.py
+```
 
-| Test ID | Test | Pass condition |
-|---|---|---|
-| CKPT-01 | Pretrained checkpoint loads | No missing or unexpected keys unless documented |
-| CKPT-02 | Expert checkpoints load | All four required experts load successfully |
-| CKPT-03 | Architecture consistency | Parameter keys and shapes match the pretrained model |
-| CKPT-04 | Checksum inventory | Checkpoint names, sizes, and hashes are recorded |
-| CKPT-05 | Task-vector round trip | theta_0 plus tau_i reconstructs theta_i within numerical tolerance |
+The [submitted CUDA environment record](../results/manifests/env__cuda__20261018T211911Z.json)
+describes the RTX 4090 machine used for the canonical measurements. A new environment record
+identifies the reproduction machine and does not replace the submitted one.
 
-### 6.3 Mathematical unit tests
+### 6.2 Checkpoint and dataset inventory
 
-| Test ID | Test | Pass condition |
-|---|---|---|
-| MATH-01 | Task-vector subtraction | Known synthetic tensors produce expected differences |
-| MATH-02 | Task Arithmetic identity | Zero task vectors reproduce the pretrained model |
-| MATH-03 | SVD basis orthogonality | B transpose B is approximately the identity |
-| MATH-04 | Projection idempotence | Projecting twice matches projecting once |
-| MATH-05 | Orthogonal residual | Shared basis transpose times projected residual is approximately zero |
-| MATH-06 | Adaptive coefficient shape | One valid coefficient exists for every required task/layer |
-| MATH-07 | Finite values | No NaN or infinity appears in task vectors, SVD outputs, coefficients, or merged weights |
+The [submitted inventory](../results/manifests/inventory__20261018T213330Z.json) contains the
+pretrained/expert checkpoint revisions, file checksums, architecture compatibility, task-vector
+round-trip checks, dataset sizes/fingerprints and preprocessing settings (CKPT-01 to CKPT-05).
+These checks can be repeated with the pinned downloads:
 
-Use explicit tolerances appropriate to dtype. Start with absolute and relative tolerances of 1e-5 for float32 unit tests and document any justified relaxation.
+```bash
+python scripts/verify_inventory.py
+```
 
-### 6.4 Baseline behavior tests
+This command downloads models and datasets and is separate from reanalysing the stored results.
+The runner also rejects test splits whose size or fingerprint differs from
+[`configs/pins.yaml`](../configs/pins.yaml).
 
-| Test ID | Test | Pass condition |
-|---|---|---|
-| BASE-01 | Pretrained evaluation | Completes on one batch and the full selected test split |
-| BASE-02 | Individual expert evaluation | Each expert performs materially better than pretrained on its own task or discrepancy is investigated |
-| BASE-03 | Task Arithmetic deterministic run | Repeated merge with the same inputs produces identical weights |
-| BASE-04 | TIES retention | Configured trim ratio is applied and recorded |
-| BASE-05 | Fair evaluation | Every method uses identical preprocessing, task heads, and test examples |
+### 6.3 Numerical checks and tolerances
 
-### 6.5 DOGE behavior tests
+Raw DOGE records contain probe diagnostics for finite objectives and corrections, projected
+gradient residuals, projection idempotence, layer counts and iteration counts. The published
+result checker enforces finite objective/correction values, 400 iterations on 72 layers and
+relative projected-gradient residual at most 1e-3 (DOGE-02, DOGE-03 and MATH-07).
+The [paper-to-code map](PAPER_TO_CODE_MAP.md#5-paper-versus-code-discrepancies) explains the
+float32 tolerance and why the gradient constraint does not imply the same constraint on Adam's
+accumulated correction.
 
-| Test ID | Test | Pass condition |
-|---|---|---|
-| DOGE-01 | Two-task smoke merge | DOGE completes for MNIST and SVHN |
-| DOGE-02 | Optimization stability | Objective and parameter values remain finite for all iterations |
-| DOGE-03 | Projection correctness | Update direction satisfies the implemented shared-subspace constraint |
-| DOGE-04 | Output checkpoint | Merged checkpoint saves and reloads without changing predictions |
-| DOGE-05 | Data-free boundary | No training or validation samples are accessed during DOGE merging |
-| DOGE-06 | Evaluation separation | Test data is used only after the merged model has been produced |
+The additional synthetic mathematical tests (MATH-01 to MATH-06) are local only. Their float32
+absolute/relative tolerance is 1e-5 unless a documented numerical reason justifies a relaxation;
+they are not needed to run the public result checks.
 
-### 6.6 End-to-end integration tests
+### 6.4 Reference evaluations and determinism
 
-| Test ID | Test | Pass condition |
-|---|---|---|
-| INT-01 | One-batch pipeline | Load, merge, evaluate, and save results succeeds |
-| INT-02 | Pairwise pipeline | One complete pair runs for all three methods |
-| INT-03 | Resume behavior | Interrupted experiment skips verified completed runs and resumes safely |
-| INT-04 | Result schema | Every result contains all required metadata and metrics |
-| INT-05 | Figure regeneration | Figures regenerate only from saved raw results |
-| INT-06 | Notebook clean run | Notebook follows the documented sequence without hidden state |
+The five reference records evaluate the pretrained model and each expert on all four test sets.
+The notebook compares their own-task accuracies with the paper-reported values in
+[`configs/paper_reference.yaml`](../configs/paper_reference.yaml) (BASE-01 and BASE-02).
+Preprocessing, class heads and test examples are shared across methods (BASE-05).
+The [method configuration](../configs/canonical_methods.yaml) fixes the TIES trim fraction and
+other merging settings (BASE-04).
 
-### 6.7 Experimental validity checks
+The [Task Arithmetic repeat record](../results/manifests/determinism__pair__mnist-svhn__task-arithmetic__seed-42__20261018T215202Z.json)
+contains two identical merged-weight hashes (BASE-03). The
+[separate MPS reproduction](../results/manifests/reproduction__pair__mnist-svhn__task-arithmetic__mps__20261018T224347Z.json)
+provides a second-machine comparison. A new repeat can be run with:
 
-- Use the same dataset splits and preprocessing for every method.
-- Do not tune a method using final test accuracy.
-- Keep the base model and expert checkpoints fixed.
-- Record all exclusions and failed runs.
-- Use one canonical configuration per method before examining results.
-- Report exact task sets, not only their size.
-- If stochastic behavior exists, use at least three seeds or explain why the method is deterministic.
-- Compare measured individual-expert accuracy against the paper or official repository; investigate large deviations before merging.
-- Never manually copy final metrics into charts when they can be generated from structured results.
+```bash
+python scripts/run_experiment.py determinism P01 task-arithmetic
+```
 
-### 6.8 Final acceptance tests
+This repeats GPU/model evaluation work; use the isolated results directories described in
+[INSTRUCTION.md, section 6](../INSTRUCTION.md#6-re-run-the-experiments-gpu).
 
-- [x] One pairwise run can be reproduced from a fresh setup by following the README instructions.
-- [x] All nine Tier 1 runs exist: P01, P03, and F01 times three methods.
-- [x] Tier 2 similarity results exist for all six pairs.
-- [x] All twelve Tier 3 runs exist: P02, P04, P05, and P06 times three methods.
-- [x] Reference evaluations for pretrained and all four individual experts exist.
-- [x] Every chart traces to a raw result artifact.
-- [x] Mock results are absent from measured-results directories.
-- [x] The submitted notebook and analysis tables use only verified measured results.
+### 6.5 Merge validity checks
 
-Presentation materials are not included in this repository.
+After installation, validate all 21 newest complete merge records without rerunning any merge:
+
+```bash
+python scripts/check_results.py
+```
+
+The expected summary is `0 problem(s)`. Checks cover required result fields, finite merged
+weights, zero dataset access during merging, a passing checkpoint save/reload comparison,
+and test data first loaded after the merge finished. DOGE records also receive the numerical
+checks above (DOGE-02 to DOGE-06 and INT-04). The notebook displays the check result for every
+experiment/method combination.
+
+A new run writes a timestamped record. The runner does not automatically skip existing runs or
+resume a partially completed merge. To continue an interrupted batch, run the missing task-set
+and method combinations explicitly; analysis selects the newest complete, non-smoke record
+for each run identifier.
+
+### 6.6 Analysis, notebook and provenance checks
+
+Regenerate the analysis from the included raw records and verify their recorded sources:
+
+```bash
+python scripts/verify_provenance.py
+python scripts/analyze.py
+uv pip install --python .venv/bin/python -r requirements-notebook.txt
+python scripts/build_notebook.py
+```
+
+These commands need no model downloads or GPU after the analysis environment is installed.
+The notebook runs top to bottom and includes tables, plots and validation results (INT-05 and
+INT-06). Rebuilding replaces its saved outputs. Each analysis folder includes `sources.json`,
+which records the SHA-256 of the raw files used. See
+[INSTRUCTION.md, section 5](../INSTRUCTION.md#5-regenerate-every-table-figure-and-the-notebook)
+for comparisons against the included tables and
+[section 8](../INSTRUCTION.md#8-verify-provenance) for the original hashes and documented text
+revisions accepted by the provenance verifier.
+
+### 6.7 Experimental validity
+
+- Every method uses the same test splits, preprocessing and class heads.
+- The base model and expert checkpoint revisions are fixed.
+- Each method has one configuration across two-task and four-task merges; coefficients are not
+  tuned on final test accuracy.
+- Exact task sets, hardware, precision, settings and raw metrics are recorded.
+- Seed 42 is fixed. The Task Arithmetic repeat is documented; multi-seed variability and
+  cross-hardware DOGE variability are not measured.
+- Similarity analysis uses six pairs and is descriptive. Task identity and repeated tasks across
+  pairs limit the interpretation of rank correlations.
+- Tables and figures are generated from the raw records. Unsupported hypotheses and limitations
+  are reported in [ANALYSIS_NOTES.md](ANALYSIS_NOTES.md).
+
+### 6.8 Included evidence
+
+| Evidence | Location and coverage |
+|---|---|
+| Complete merge results | [`results/raw/`](../results/raw/): all six pairs and F01, each with three methods |
+| Reference evaluations | Five records in [`results/raw/`](../results/raw/) |
+| Pairwise similarity | [All six pairs](../results/raw/similarity__all-pairs__encw-cos__20261018T220404Z.json) |
+| Run environment and inventory | [`results/manifests/`](../results/manifests/) |
+| Derived tables and source hashes | [Submitted analysis folder](../results/processed/analysis__20261018T222449Z/) |
+| Plots | [Submitted figures](../figures/analysis__20261018T222449Z/) |
+| Executed walkthrough and record checks | [Jupyter notebook](../notebooks/doge_merging_exam.ipynb) |
+
+The local `tests/` directory and presentation materials are not included in the GitHub repository.
 
 ---
 
@@ -244,7 +279,7 @@ Merge runs save JSON records with the fields below. Logical fields may be nested
 commit is `provenance.git_commit` (`null` in the submitted records), checkpoint identifiers are
 in `checkpoints`, configuration values are in `method_config` and `evaluation_config`, and
 configuration paths and hashes are in `provenance.config_files`. See the
-[field mapping in INSTRUCTION.md §9](../INSTRUCTION.md#9-result-file-format).
+[field mapping in INSTRUCTION.md section 9](../INSTRUCTION.md#9-result-file-format).
 
 - run_id
 - timestamp
@@ -308,7 +343,7 @@ the pod has since been stopped. Its `/workspace` paths are historical machine lo
 paths to files included in this submission.
 
 For reproduction, use a fresh CUDA machine and follow
-[INSTRUCTION.md §6](../INSTRUCTION.md#6-re-run-the-experiments-gpu). The setup script creates the
+[INSTRUCTION.md section 6](../INSTRUCTION.md#6-re-run-the-experiments-gpu). The setup script creates the
 pinned Python environment, and `scripts/run_experiment.py` builds the required pools directly.
 Choose storage appropriate to the runtime and keep independent copies of results. Use separate
 `DOGE_RESULTS_ROOT` and `DOGE_FIGURES_ROOT` directories for re-runs so the submitted evidence

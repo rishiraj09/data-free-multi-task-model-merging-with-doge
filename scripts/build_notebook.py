@@ -263,7 +263,7 @@ display(Image(FIG / "similarity_vs_retention.png", width=900))"""),
               for e in analyze.experiment_order(merges) for m in A.METHODS]).set_index(["experiment", "method"])"""),
     ("md", r"""### 3.5 Hypotheses
 
-Definitions: [experimental protocol §5.5](../docs/EXPERIMENT_PROTOCOL.md#55-primary-hypotheses)."""),
+Definitions: [experimental protocol section 5.5](../docs/EXPERIMENT_PROTOCOL.md#55-primary-hypotheses)."""),
     ("code", r"""hyp = A.hypotheses(merges, tvf, svr)
 pd.DataFrame([{"hypothesis": k, "statement": v["statement"], "verdict": v["verdict"]} for k, v in hyp.items()]).set_index("hypothesis")"""),
     ("md", r"""## 4. Validity checks on every merge record
@@ -333,12 +333,15 @@ The included notebook can be read with its saved outputs. Recomputing its analys
 the submitted raw records and does not require a GPU or downloaded checkpoints. Repeating the
 original measurements requires a CUDA GPU; the recorded runs used a Runpod RTX 4090 (24 GB).
 
-On a fresh Runpod Linux machine with an NVIDIA driver, copy and extract the submission archive,
-open a terminal in the extracted project root (the folder containing `pyproject.toml`), and
-confirm that `git` and [`uv`](https://docs.astral.sh/uv/getting-started/installation/) are available.
-Use the project environment rather than the container's system Python:
+On a fresh Runpod Linux machine with an NVIDIA driver, confirm that `git` and
+[`uv`](https://docs.astral.sh/uv/getting-started/installation/) are available. Clone the repository
+and use its project environment rather than the container's system Python. If using the
+submission archive instead, extract it and enter the folder containing `pyproject.toml`,
+then start at `nvidia-smi` below:
 
 ```bash
+git clone https://github.com/rishiraj09/data-free-multi-task-model-merging-with-doge.git
+cd data-free-multi-task-model-merging-with-doge
 nvidia-smi
 bash scripts/setup_env.sh
 source .venv/bin/activate
